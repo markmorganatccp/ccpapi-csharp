@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CcpApiTransactionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_ICcpApiTransactionService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://devwcfccpservicesbase.cloudcommercepro.com/CcpApiTransactionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICcpApiTransactionService_SearchTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchTransactions" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_SearchTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_LogTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogTransactions" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_LogTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactions" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetSalesInvoices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesInvoices" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetSalesInvoices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesInvoicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetSalesReceipts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesReceipts" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetSalesReceipts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesReceiptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetSalesPayments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesPayments" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetSalesPayments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetSalesCreditNotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesCreditNotes" />
+  </wsdl:message>
+  <wsdl:message name="ICcpApiTransactionService_GetSalesCreditNotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesCreditNotesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICcpApiTransactionService">
+    <wsdl:documentation>&lt;summary&gt;
+            Financial Reporting
+            &lt;/summary&gt;</wsdl:documentation>
+    <wsdl:operation name="SearchTransactions">
+      <wsdl:documentation>&lt;summary&gt;
+             Gets a list of Financial Transactions for a given date range
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;![CDATA[RequestObject&lt;List&lt;DateTime&gt;&gt;&gt;]]&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;![CDATA[ResponseObject&lt;List&lt;IFinancialTransaction&gt;&gt;]]&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICcpApiTransactionService/SearchTransactions" message="tns:ICcpApiTransactionService_SearchTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICcpApiTransactionService/SearchTransactionsResponse" message="tns:ICcpApiTransactionService_SearchTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogTransactions">
+      <wsdl:documentation>&lt;summary&gt;
+             Updates Transactions with Primary and Secondary Accounting References
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;![CDATA[RequestObject&lt;List&lt;DateTime&gt;&gt;&gt;]]&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;![CDATA[ResponseObject&lt;List&lt;IFinancialTransaction&gt;&gt;]]&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICcpApiTransactionService/LogTransactions" message="tns:ICcpApiTransactionService_LogTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICcpApiTransactionService/LogTransactionsResponse" message="tns:ICcpApiTransactionService_LogTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactions">
+      <wsdl:documentation>&lt;summary&gt;
+             Gets a list of Financial Transactions for a given date range
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;![CDATA[RequestObject&lt;List&lt;DateTime&gt;&gt;&gt;]]&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;![CDATA[ResponseObject&lt;List&lt;IFinancialTransaction&gt;&gt;]]&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetTransactions" message="tns:ICcpApiTransactionService_GetTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetTransactionsResponse" message="tns:ICcpApiTransactionService_GetTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesInvoices">
+      <wsdl:documentation>&lt;summary&gt;
+             Gets a list of Financial Transactions for a given date range
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;![CDATA[RequestObject&lt;List&lt;DateTime&gt;&gt;&gt;]]&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;![CDATA[ResponseObject&lt;List&lt;IFinancialTransaction&gt;&gt;]]&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetSalesInvoices" message="tns:ICcpApiTransactionService_GetSalesInvoices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetSalesInvoicesResponse" message="tns:ICcpApiTransactionService_GetSalesInvoices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesReceipts">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetSalesReceipts" message="tns:ICcpApiTransactionService_GetSalesReceipts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetSalesReceiptsResponse" message="tns:ICcpApiTransactionService_GetSalesReceipts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesPayments">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetSalesPayments" message="tns:ICcpApiTransactionService_GetSalesPayments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetSalesPaymentsResponse" message="tns:ICcpApiTransactionService_GetSalesPayments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesCreditNotes">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetSalesCreditNotes" message="tns:ICcpApiTransactionService_GetSalesCreditNotes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICcpApiTransactionService/GetSalesCreditNotesResponse" message="tns:ICcpApiTransactionService_GetSalesCreditNotes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICcpApiTransactionService" type="tns:ICcpApiTransactionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SearchTransactions">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/SearchTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogTransactions">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/LogTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactions">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesInvoices">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetSalesInvoices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesReceipts">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetSalesReceipts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesPayments">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetSalesPayments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesCreditNotes">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetSalesCreditNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_ICcpApiTransactionService" type="tns:ICcpApiTransactionService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_ICcpApiTransactionService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SearchTransactions">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/SearchTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogTransactions">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/LogTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactions">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesInvoices">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetSalesInvoices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesReceipts">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetSalesReceipts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesPayments">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetSalesPayments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesCreditNotes">
+      <soap:operation soapAction="http://tempuri.org/ICcpApiTransactionService/GetSalesCreditNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CcpApiTransactionService">
+    <wsdl:port name="BasicHttpBinding_ICcpApiTransactionService" binding="tns:BasicHttpBinding_ICcpApiTransactionService">
+      <soap:address location="http://devwcfccpservicesbase.cloudcommercepro.com/CcpApiTransactionService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_ICcpApiTransactionService" binding="tns:BasicHttpsBinding_ICcpApiTransactionService">
+      <soap:address location="https://devwcfccpservicesbase.cloudcommercepro.com/CcpApiTransactionService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="wcfproductoptions.cloudcommercepro.com" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CCPApiProductOptionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_CCPProductOptions_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="wcfproductoptions.cloudcommercepro.com" location="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiProductOptionService.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_CCPProductOptions" type="i0:CCPProductOptions">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestCredentials">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/TestCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProductOption">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addProductOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductOptionById">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getProductOptionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableProductOptions">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getAvailableProductOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionName">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionEbayName">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionEbayName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionAmazonName">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionAmazonName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionWebName">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionWebName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionPriority">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionPriority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionMaster">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProductOption">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/deleteProductOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionStatus">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionHidden">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionHidden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeletedProductOptions">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getDeletedProductOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addOptionValue">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addOptionValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateOptionValue">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/updateOptionValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOptionValues">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getOptionValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProductLink">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addProductLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setGroupBy">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setGroupBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setSelect">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setWebShopFilter">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setWebShopFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEbayOption">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setEbayOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setAmazonOption">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setAmazonOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_CCPProductOptions" type="i0:CCPProductOptions">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_CCPProductOptions_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestCredentials">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/TestCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProductOption">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addProductOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductOptionById">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getProductOptionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableProductOptions">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getAvailableProductOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionName">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionEbayName">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionEbayName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionAmazonName">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionAmazonName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionWebName">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionWebName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionPriority">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionPriority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionMaster">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProductOption">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/deleteProductOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionStatus">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOptionHidden">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionHidden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeletedProductOptions">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getDeletedProductOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addOptionValue">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addOptionValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateOptionValue">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/updateOptionValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOptionValues">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getOptionValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProductLink">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addProductLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setGroupBy">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setGroupBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setSelect">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setWebShopFilter">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setWebShopFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEbayOption">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setEbayOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setAmazonOption">
+      <soap:operation soapAction="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setAmazonOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CCPApiProductOptionService">
+    <wsdl:port name="BasicHttpBinding_CCPProductOptions" binding="tns:BasicHttpBinding_CCPProductOptions">
+      <soap:address location="http://devwcfccpservicesbase.cloudcommercepro.com/CCPApiProductOptionService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_CCPProductOptions" binding="tns:BasicHttpsBinding_CCPProductOptions">
+      <soap:address location="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiProductOptionService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

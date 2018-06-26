@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CCPApiSalesChannelService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_ICCPApiSalesChannelService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiSalesChannelService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICCPApiSalesChannelService_getApiSalesChannels_InputMessage">
+    <wsdl:part name="parameters" element="tns:getApiSalesChannels" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getApiSalesChannels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getApiSalesChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getActiveSalesChannels_InputMessage">
+    <wsdl:part name="parameters" element="tns:getActiveSalesChannels" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getActiveSalesChannels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getActiveSalesChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getUpdates_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUpdates" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getUpdates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUpdatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductUpdates_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductUpdates" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductUpdates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductUpdatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getSKUSalesReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSKUSalesReport" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getSKUSalesReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSKUSalesReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProducts" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductById" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductByExternalProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByExternalProductId" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductByExternalProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByExternalProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductByManufacturerSKU_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByManufacturerSKU" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductByManufacturerSKU_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByManufacturerSKUResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductByBarcode_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByBarcode" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_getProductByBarcode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductByBarcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_SetProductPseudoStockLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetProductPseudoStockLevel" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_SetProductPseudoStockLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetProductPseudoStockLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_TestCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentials" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiSalesChannelService_TestCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICCPApiSalesChannelService">
+    <wsdl:documentation>&lt;summary&gt;
+            Interacts with specific Sales Channel
+            &lt;/summary&gt;</wsdl:documentation>
+    <wsdl:operation name="getApiSalesChannels">
+      <wsdl:documentation>&lt;summary&gt;
+            Gets a list of Active ccpAPI Sales Channels for the User Brand
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getApiSalesChannels" message="tns:ICCPApiSalesChannelService_getApiSalesChannels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getApiSalesChannelsResponse" message="tns:ICCPApiSalesChannelService_getApiSalesChannels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getActiveSalesChannels">
+      <wsdl:documentation>&lt;summary&gt;
+            gets a list of active sales channels
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getActiveSalesChannels" message="tns:ICCPApiSalesChannelService_getActiveSalesChannels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getActiveSalesChannelsResponse" message="tns:ICCPApiSalesChannelService_getActiveSalesChannels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUpdates">
+      <wsdl:documentation>&lt;summary&gt;
+            Gets a List of Update events and related products e.g. Range Added would return all products in that range
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;![CDATA[RequestObject&lt;APISalesChannelGetProductUpdatesRequest&gt;]]&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;![CDATA[ResponseObject&lt;APIExternalChannelSessionList&gt;]]&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getUpdates" message="tns:ICCPApiSalesChannelService_getUpdates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getUpdatesResponse" message="tns:ICCPApiSalesChannelService_getUpdates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductUpdates">
+      <wsdl:documentation>&lt;summary&gt;
+            Gets a List of Update events and related products e.g. Range Added would return all products in that range
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductUpdates" message="tns:ICCPApiSalesChannelService_getProductUpdates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductUpdatesResponse" message="tns:ICCPApiSalesChannelService_getProductUpdates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSKUSalesReport">
+      <wsdl:documentation>&lt;summary&gt;
+            Returns Sales Figures for a given sku, sales channel and date range, including whether part of multipack
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getSKUSalesReport" message="tns:ICCPApiSalesChannelService_getSKUSalesReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getSKUSalesReportResponse" message="tns:ICCPApiSalesChannelService_getSKUSalesReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProducts">
+      <wsdl:documentation>&lt;summary&gt;
+            Get a list of Products based on Sales Channel
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProducts" message="tns:ICCPApiSalesChannelService_getProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductsResponse" message="tns:ICCPApiSalesChannelService_getProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductById">
+      <wsdl:documentation>&lt;summary&gt;
+            Get a  Product 
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductById" message="tns:ICCPApiSalesChannelService_getProductById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductByIdResponse" message="tns:ICCPApiSalesChannelService_getProductById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductByExternalProductId">
+      <wsdl:documentation>&lt;summary&gt;
+            Get a  Product 
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductByExternalProductId" message="tns:ICCPApiSalesChannelService_getProductByExternalProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductByExternalProductIdResponse" message="tns:ICCPApiSalesChannelService_getProductByExternalProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductByManufacturerSKU">
+      <wsdl:documentation>&lt;summary&gt;
+            Get a  Product 
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductByManufacturerSKU" message="tns:ICCPApiSalesChannelService_getProductByManufacturerSKU_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductByManufacturerSKUResponse" message="tns:ICCPApiSalesChannelService_getProductByManufacturerSKU_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductByBarcode">
+      <wsdl:documentation>&lt;summary&gt;
+            Get a  Product 
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductByBarcode" message="tns:ICCPApiSalesChannelService_getProductByBarcode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/getProductByBarcodeResponse" message="tns:ICCPApiSalesChannelService_getProductByBarcode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetProductPseudoStockLevel">
+      <wsdl:documentation>&lt;summary&gt;
+            Set Pseudo Stock Level On Product in Sales Channel
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/SetProductPseudoStockLevel" message="tns:ICCPApiSalesChannelService_SetProductPseudoStockLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/SetProductPseudoStockLevelResponse" message="tns:ICCPApiSalesChannelService_SetProductPseudoStockLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestCredentials">
+      <wsdl:documentation>&lt;summary&gt;
+            Test Authentication
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/TestCredentials" message="tns:ICCPApiSalesChannelService_TestCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiSalesChannelService/TestCredentialsResponse" message="tns:ICCPApiSalesChannelService_TestCredentials_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICCPApiSalesChannelService" type="tns:ICCPApiSalesChannelService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getApiSalesChannels">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getApiSalesChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveSalesChannels">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getActiveSalesChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUpdates">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductUpdates">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSKUSalesReport">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getSKUSalesReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProducts">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductById">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByExternalProductId">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductByExternalProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByManufacturerSKU">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductByManufacturerSKU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByBarcode">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductByBarcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetProductPseudoStockLevel">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/SetProductPseudoStockLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestCredentials">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/TestCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_ICCPApiSalesChannelService" type="tns:ICCPApiSalesChannelService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_ICCPApiSalesChannelService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getApiSalesChannels">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getApiSalesChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveSalesChannels">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getActiveSalesChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUpdates">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductUpdates">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSKUSalesReport">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getSKUSalesReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProducts">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductById">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByExternalProductId">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductByExternalProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByManufacturerSKU">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductByManufacturerSKU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByBarcode">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/getProductByBarcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetProductPseudoStockLevel">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/SetProductPseudoStockLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestCredentials">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiSalesChannelService/TestCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CCPApiSalesChannelService">
+    <wsdl:port name="BasicHttpBinding_ICCPApiSalesChannelService" binding="tns:BasicHttpBinding_ICCPApiSalesChannelService">
+      <soap:address location="http://devwcfccpservicesbase.cloudcommercepro.com/CCPApiSalesChannelService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_ICCPApiSalesChannelService" binding="tns:BasicHttpsBinding_ICCPApiSalesChannelService">
+      <soap:address location="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiSalesChannelService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

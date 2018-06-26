@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="wcfproductranges.cloudcommercepro.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="wcfproductranges.cloudcommercepro.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="wcfproductranges.cloudcommercepro.com/Imports">
+      <xsd:import schemaLocation="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiProductRangeService.svc?xsd=xsd0" namespace="wcfproductranges.cloudcommercepro.com" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CCPProductRanges_TestCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentials" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_TestCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_addProductRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:addProductRange" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_addProductRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addProductRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_getProductRanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductRanges" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_getProductRanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductRangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_getDeletedProductRanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDeletedProductRanges" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_getDeletedProductRanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDeletedProductRangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_getProductRangeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductRangeById" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_getProductRangeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductRangeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_updateProductRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateProductRange" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_updateProductRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateProductRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setManufacturerSKU_InputMessage">
+    <wsdl:part name="parameters" element="tns:setManufacturerSKU" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setManufacturerSKU_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setManufacturerSKUResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setName_InputMessage">
+    <wsdl:part name="parameters" element="tns:setName" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setNeckShape_InputMessage">
+    <wsdl:part name="parameters" element="tns:setNeckShape" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setNeckShape_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setNeckShapeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setEndOfLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:setEndOfLine" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setEndOfLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setEndOfLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setPreOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:setPreOrder" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setPreOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setPreOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setLastStockCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:setLastStockCheck" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setLastStockCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setLastStockCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setGroupBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:setGroupBy" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setGroupBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setGroupByResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setWarehousePickOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:setWarehousePickOrder" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setWarehousePickOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setWarehousePickOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:setStatus" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_setStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_deleteProductRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteProductRange" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_deleteProductRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteProductRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_addRangeOptionLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRangeOptionLink" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_addRangeOptionLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRangeOptionLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_removeRangeOptionLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeRangeOptionLink" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductRanges_removeRangeOptionLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeRangeOptionLinkResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CCPProductRanges">
+    <wsdl:documentation>&lt;summary&gt;
+            test comment here
+            &lt;/summary&gt;</wsdl:documentation>
+    <wsdl:operation name="TestCredentials">
+      <wsdl:documentation>&lt;summary&gt;
+            tests service authentication
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/TestCredentials" message="tns:CCPProductRanges_TestCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/TestCredentialsResponse" message="tns:CCPProductRanges_TestCredentials_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addProductRange">
+      <wsdl:documentation>&lt;summary&gt;
+            Creates a new Product Range
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/addProductRange" message="tns:CCPProductRanges_addProductRange_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/addProductRangeResponse" message="tns:CCPProductRanges_addProductRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductRanges">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/getProductRanges" message="tns:CCPProductRanges_getProductRanges_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/getProductRangesResponse" message="tns:CCPProductRanges_getProductRanges_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeletedProductRanges">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/getDeletedProductRanges" message="tns:CCPProductRanges_getDeletedProductRanges_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/getDeletedProductRangesResponse" message="tns:CCPProductRanges_getDeletedProductRanges_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductRangeById">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/getProductRangeById" message="tns:CCPProductRanges_getProductRangeById_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/getProductRangeByIdResponse" message="tns:CCPProductRanges_getProductRangeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateProductRange">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/updateProductRange" message="tns:CCPProductRanges_updateProductRange_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/updateProductRangeResponse" message="tns:CCPProductRanges_updateProductRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setManufacturerSKU">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setManufacturerSKU" message="tns:CCPProductRanges_setManufacturerSKU_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setManufacturerSKUResponse" message="tns:CCPProductRanges_setManufacturerSKU_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setName">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setName" message="tns:CCPProductRanges_setName_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setNameResponse" message="tns:CCPProductRanges_setName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setNeckShape">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setNeckShape" message="tns:CCPProductRanges_setNeckShape_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setNeckShapeResponse" message="tns:CCPProductRanges_setNeckShape_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setEndOfLine">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setEndOfLine" message="tns:CCPProductRanges_setEndOfLine_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setEndOfLineResponse" message="tns:CCPProductRanges_setEndOfLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setPreOrder">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setPreOrder" message="tns:CCPProductRanges_setPreOrder_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setPreOrderResponse" message="tns:CCPProductRanges_setPreOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setLastStockCheck">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setLastStockCheck" message="tns:CCPProductRanges_setLastStockCheck_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setLastStockCheckResponse" message="tns:CCPProductRanges_setLastStockCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setGroupBy">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setGroupBy" message="tns:CCPProductRanges_setGroupBy_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setGroupByResponse" message="tns:CCPProductRanges_setGroupBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setWarehousePickOrder">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setWarehousePickOrder" message="tns:CCPProductRanges_setWarehousePickOrder_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setWarehousePickOrderResponse" message="tns:CCPProductRanges_setWarehousePickOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setStatus">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setStatus" message="tns:CCPProductRanges_setStatus_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/setStatusResponse" message="tns:CCPProductRanges_setStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteProductRange">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/deleteProductRange" message="tns:CCPProductRanges_deleteProductRange_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/deleteProductRangeResponse" message="tns:CCPProductRanges_deleteProductRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRangeOptionLink">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/addRangeOptionLink" message="tns:CCPProductRanges_addRangeOptionLink_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/addRangeOptionLinkResponse" message="tns:CCPProductRanges_addRangeOptionLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeRangeOptionLink">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/removeRangeOptionLink" message="tns:CCPProductRanges_removeRangeOptionLink_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductranges.cloudcommercepro.com/CCPProductRanges/removeRangeOptionLinkResponse" message="tns:CCPProductRanges_removeRangeOptionLink_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

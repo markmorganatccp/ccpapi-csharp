@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="getBankAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfInt32">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getBankAccountsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getBankAccountsResult" type="tns:ResponseObjectOfListOfAPIPaymentBankAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfListOfAPIPaymentBankAccount">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfAPIPaymentBankAccount" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPIPaymentBankAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIPaymentBankAccount" nillable="true" type="tns:APIPaymentBankAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIPaymentBankAccount">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankSortCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankAccountNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankAccountName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiFault" nillable="true" type="tns:ApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="RequestNodeIndex" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ccpApiErrorCodeType" type="tns:ErrorCodeType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Detail" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ElementName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FaultType" type="tns:CCPApiFaultType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ErrorCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InvalidBrandID" />
+      <xs:enumeration value="InvalidID" />
+      <xs:enumeration value="RecordAlreadyExists" />
+      <xs:enumeration value="MissingRequiredData" />
+      <xs:enumeration value="ObjectNotFound" />
+      <xs:enumeration value="GeneralException" />
+      <xs:enumeration value="InvalidData" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CCPApiFaultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AuthenticationFault" />
+      <xs:enumeration value="AuthorizationFault" />
+      <xs:enumeration value="ValidationFault" />
+      <xs:enumeration value="General" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreatePayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIPaymentAddPaymentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfAPIPaymentAddPaymentRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIPaymentAddPaymentRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIPaymentAddPaymentRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="intInvoiceID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intProformaID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intBrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intSalesChannelID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intBankAccountID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="strPaymentReference" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dbPaymentNetAmount" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dbPaymentTaxAmount" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dbPaymentAmount" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dbGBPPaymentAmount" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dbPostagePaymentAmount" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dbPostageGBPPaymentAmount" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dtPaymentDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TransactionTypeID" type="tns:TransactionTypeID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intCustomerID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GatewayType" type="tns:PaymentGatewayType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TransactionTypeID">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Cash" />
+      <xs:enumeration value="CardPayment" />
+      <xs:enumeration value="ChequePayment" />
+      <xs:enumeration value="StandingOrder" />
+      <xs:enumeration value="DirectDebit" />
+      <xs:enumeration value="BACS" />
+      <xs:enumeration value="OnlineBankingTransfer" />
+      <xs:enumeration value="Refund" />
+      <xs:enumeration value="CreditNote" />
+      <xs:enumeration value="Invoice" />
+      <xs:enumeration value="PaymentGateway" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PaymentGatewayType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="PayPal" />
+      <xs:enumeration value="SagePay" />
+      <xs:enumeration value="CardSave" />
+      <xs:enumeration value="CashFlows" />
+      <xs:enumeration value="HSBC" />
+      <xs:enumeration value="AmazonPayments" />
+      <xs:enumeration value="Amazon" />
+      <xs:enumeration value="SecureTrading" />
+      <xs:enumeration value="WorldPay" />
+      <xs:enumeration value="Stripe" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreatePaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="CreatePaymentResult" type="tns:ResponseObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfInt32">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestCredentials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfString">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestCredentialsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="TestCredentialsResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfBoolean">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

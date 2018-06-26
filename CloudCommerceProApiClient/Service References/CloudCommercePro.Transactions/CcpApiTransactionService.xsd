@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SearchTransactions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfTransactionQuery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfTransactionQuery">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:TransactionQuery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransactionQuery">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="includeProcessedTransactions" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="transactionTypes" type="tns:ArrayOfTransactionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTransactionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransactionType" type="tns:TransactionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TransactionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SalesInvoice" />
+      <xs:enumeration value="SalesCredit" />
+      <xs:enumeration value="SalesReceipt" />
+      <xs:enumeration value="SalesPayment" />
+      <xs:enumeration value="SalesAllocation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SearchTransactionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SearchTransactionsResult" type="tns:ResponseObjectOfTransactionQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfTransactionQueryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:TransactionQueryResponse" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransactionQueryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalRecordsAvailable" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="transactions" type="tns:ArrayOfTransactionWrapper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTransactionWrapper">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransactionWrapper" nillable="true" type="tns:TransactionWrapper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransactionWrapper">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SageAccountRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="transactionType" type="tns:TransactionType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesInvoice" type="tns:SalesInvoice" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesCreditNote" type="tns:SalesCreditNote" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesReceipt" type="tns:SalesReceipt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesPayment" type="tns:SalesPayment" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesAllocation" type="tns:SalesAllocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SalesInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SageAccountRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="transactionType" type="tns:TransactionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannel" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CarriageNominal" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CarriageNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CarriageVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Carriage" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VatAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingPrimaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingSecondaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LineItems" type="tns:ArrayOfSageInvoiceItem" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSageInvoiceItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SageInvoiceItem" nillable="true" type="tns:SageInvoiceItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SageInvoiceItem">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="RowNetBeforeDiscount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowVatBeforeDiscount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowGrossBeforeDiscount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowItemDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowItemDiscountVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowItemDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowOrderDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowOrderDiscountVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowOrderDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATRate" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GroupingIdentifier" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountVATGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalVATGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Dispatched" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageUniqueNumber" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageRecordNumber" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageInvoiceID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATRateID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerOrderItemID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountVatGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UnitCost" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UnitCostGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemVatGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountVATGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Discount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalDiscountNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalDiscountVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalDiscountVatGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalDiscountGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetAmountGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATAmountGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalVatGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GBPValue" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GBPPaid" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AmountPaid" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StatusID">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="PartCancel" />
+      <xs:enumeration value="PartUpdate" />
+      <xs:enumeration value="PartAdd" />
+      <xs:enumeration value="Enabled" />
+      <xs:enumeration value="Disabled" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="Archived" />
+      <xs:enumeration value="PreDelete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SalesCreditNote">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SageAccountRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="transactionType" type="tns:TransactionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannel" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CarriageNominal" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CarriageNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CarriageVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Carriage" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VatAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingPrimaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingSecondaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LineItems" type="tns:ArrayOfPaymentItem" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Allocations" type="tns:ArrayOfSageAllocation" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPaymentItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentItem" nillable="true" type="tns:PaymentItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PaymentItem">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PaymentID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VatRateID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerOrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageInvoiceItemID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GBPAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GBPPaid" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageUniqueNumber" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemAmountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemAmountNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemAmountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemAmountGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemAmountVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemAmountVatGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalVatGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalGrossGBP" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSageAllocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SageAllocation" nillable="true" type="tns:SageAllocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SageAllocation">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GBPAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageTransactionID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageInvoiceID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:IStatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingAPIPrimaryRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingAPISecondaryRef" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="IStatusID">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="PreDelete" />
+      <xs:enumeration value="Archived" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="Disabled" />
+      <xs:enumeration value="Enabled" />
+      <xs:enumeration value="PartAdd" />
+      <xs:enumeration value="PartUpdate" />
+      <xs:enumeration value="PartCancel" />
+      <xs:enumeration value="Completed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SalesReceipt">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SageAccountRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="transactionType" type="tns:TransactionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannel" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CarriageNominal" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CarriageNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CarriageVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Carriage" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VatAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingPrimaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingSecondaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Allocations" type="tns:ArrayOfSageAllocation" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SalesPayment">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SageAccountRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="transactionType" type="tns:TransactionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannel" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CarriageNominal" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CarriageNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CarriageVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Carriage" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VatAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingPrimaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingSecondaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SalesAllocation">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SageAccountRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="transactionType" type="tns:TransactionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannel" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesNominal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingPrimaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountingSecondaryReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesInvoice" type="tns:SalesInvoice" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesReceipt" type="tns:SalesReceipt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesCreditNote" type="tns:SalesCreditNote" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesPayment" type="tns:SalesPayment" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiFault" nillable="true" type="tns:ApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="RequestNodeIndex" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ccpApiErrorCodeType" type="tns:ErrorCodeType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Detail" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ElementName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FaultType" type="tns:CCPApiFaultType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ErrorCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InvalidBrandID" />
+      <xs:enumeration value="InvalidID" />
+      <xs:enumeration value="RecordAlreadyExists" />
+      <xs:enumeration value="MissingRequiredData" />
+      <xs:enumeration value="ObjectNotFound" />
+      <xs:enumeration value="GeneralException" />
+      <xs:enumeration value="InvalidData" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CCPApiFaultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AuthenticationFault" />
+      <xs:enumeration value="AuthorizationFault" />
+      <xs:enumeration value="ValidationFault" />
+      <xs:enumeration value="General" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LogTransactions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfListOfTransactionWrapper" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfListOfTransactionWrapper">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfTransactionWrapper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogTransactionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="LogTransactionsResult" type="tns:ResponseObjectOfListOfTransactionWrapper" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfListOfTransactionWrapper">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfTransactionWrapper" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTransactions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfListOfDateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfListOfDateTime">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfDateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfDateTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dateTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTransactionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetTransactionsResult" type="tns:ResponseObjectOfListOfTransactionWrapper" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSalesInvoices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfListOfDateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSalesInvoicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSalesInvoicesResult" type="tns:ResponseObjectOfListOfSalesInvoice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfListOfSalesInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfSalesInvoice" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSalesInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SalesInvoice" nillable="true" type="tns:SalesInvoice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSalesReceipts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfListOfDateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSalesReceiptsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSalesReceiptsResult" type="tns:ResponseObjectOfListOfSalesReceipt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfListOfSalesReceipt">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfSalesReceipt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSalesReceipt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SalesReceipt" nillable="true" type="tns:SalesReceipt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSalesPayments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfListOfDateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSalesPaymentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSalesPaymentsResult" type="tns:ResponseObjectOfListOfSalesPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfListOfSalesPayment">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfSalesPayment" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSalesPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SalesPayment" nillable="true" type="tns:SalesPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSalesCreditNotes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfListOfDateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSalesCreditNotesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSalesCreditNotesResult" type="tns:ResponseObjectOfListOfSalesCreditNote" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfListOfSalesCreditNote">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfSalesCreditNote" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSalesCreditNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SalesCreditNote" nillable="true" type="tns:SalesCreditNote" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

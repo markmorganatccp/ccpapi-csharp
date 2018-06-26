@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="wcfproductranges.cloudcommercepro.com" elementFormDefault="qualified" targetNamespace="wcfproductranges.cloudcommercepro.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="TestCredentials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:ServiceRequestObjectOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ServiceRequestObjectOfString">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestObjectOfString" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RequestObjectOfString">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestCredentialsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="TestCredentialsResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfBoolean">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiFault" nillable="true" type="tns:ApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="RequestNodeIndex" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ccpApiErrorCodeType" type="tns:ErrorCodeType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Detail" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ElementName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FaultType" type="tns:CCPApiFaultType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ErrorCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InvalidBrandID" />
+      <xs:enumeration value="InvalidID" />
+      <xs:enumeration value="RecordAlreadyExists" />
+      <xs:enumeration value="MissingRequiredData" />
+      <xs:enumeration value="ObjectNotFound" />
+      <xs:enumeration value="GeneralException" />
+      <xs:enumeration value="InvalidData" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CCPApiFaultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AuthenticationFault" />
+      <xs:enumeration value="AuthorizationFault" />
+      <xs:enumeration value="ValidationFault" />
+      <xs:enumeration value="General" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="addProductRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfAPIProductRange">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIProductRange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIProductRange">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Manufacturer" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManufacturerSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NeckShape" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndOfLine" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PreOrder" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Weight" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LastStockCheck" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GroupBy" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehousePickOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="tns:StatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="options" type="tns:ArrayOfAPIProductRangeOption" />
+      <xs:element minOccurs="0" maxOccurs="1" name="products" type="tns:ArrayOfAPIProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StatusID">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="PartCancel" />
+      <xs:enumeration value="PartUpdate" />
+      <xs:enumeration value="PartAdd" />
+      <xs:enumeration value="Enabled" />
+      <xs:enumeration value="Disabled" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="Archived" />
+      <xs:enumeration value="PreDelete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfAPIProductRangeOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIProductRangeOption" nillable="true" type="tns:APIProductRangeOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIProductRangeOption">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="OptionID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsWebShopFilter" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsWebShopSelect" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsWebShopGroupBy" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsEbayOption" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsEbayImageOption" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsAmazonOption" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsAmazonImageOption" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionEbayName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionAmazonName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionWebName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OptionSortOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OptionType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Master" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Hidden" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="tns:StatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AvailableOptionValues" type="tns:ArrayOfAPIProductRangeOptionValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPIProductRangeOptionValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIProductRangeOptionValue" nillable="true" type="tns:APIProductRangeOptionValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIProductRangeOptionValue">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OptionID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionValue" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OptionSortOrder" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPIProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIProduct" nillable="true" type="tns:APIProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIProduct">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManufacturerSKU" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierProductLinks" type="tns:ArrayOfAPIProductSupplierLink" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BasePrice" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChannelPrice" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATRateID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCodeNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AdditionalBarCodes" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ASIN" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AmazonVariationID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EbayListingID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EbayVariationID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductRangeID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PreOrder" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndOfLine" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LengthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WidthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HeightMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WeightGM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LargeLetterCompatible" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductVATRate" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SearchText" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AdditionalShippingLabel" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExternalProductId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Thumbs200x200" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Thumbs75x75" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MatchOptions" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StockLevel" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChannelPseudoStockLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SelectedProductRangeOptionValues" type="tns:ArrayOfAPIProductRangeOptionValue" />
+      <xs:element minOccurs="0" maxOccurs="1" name="imageB64Strings" type="tns:ArrayOfString" />
+      <xs:element minOccurs="0" maxOccurs="1" name="images" type="tns:ArrayOfAPIProductImage" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AmazonVariations" type="tns:ArrayOfAPIAmazonVariation" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EbayVariations" type="tns:ArrayOfAPIEbayVariation" />
+      <xs:element minOccurs="0" maxOccurs="1" name="packItems" type="tns:ArrayOfPackageProductWithQuantity" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannelLinks" type="tns:ArrayOfAPISalesChannelLink" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderMaxStock" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderAtStockQuantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderStockType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderBoxQuantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductStockType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchIdentifierOption" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StockLocations" type="tns:ArrayOfItemBayStockLevel" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OnOrder" type="tns:ArrayOfSupplierOrderItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPIProductSupplierLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIProductSupplierLink" nillable="true" type="tns:APIProductSupplierLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIProductSupplierLink">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SupplierPrice" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SupplierPriceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierSKU" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPIProductImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIProductImage" nillable="true" type="tns:APIProductImage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIProductImage">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="strBS64" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FileName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FileExtension" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="URL" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPIAmazonVariation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIAmazonVariation" nillable="true" type="tns:APIAmazonVariation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIAmazonVariation">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AmazonVariationID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VariationID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Stock" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Options" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Barcode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ASIN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SKU" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPIEbayVariation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIEbayVariation" nillable="true" type="tns:APIEbayVariation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIEbayVariation">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="EbayVariationID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VariationID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Stock" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Options" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Barcode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ListingID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPackageProductWithQuantity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageProductWithQuantity" nillable="true" type="tns:PackageProductWithQuantity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PackageProductWithQuantity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Product" type="tns:objProduct" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductPricePercentage" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StatusID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="objProduct">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="isChecked" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="isListed" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierSKU" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UniqueID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FullName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Options" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManufacturerSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BasePrice" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VatRateID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VatRate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Barcode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RangeID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RangeName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PreOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndOfLine" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StockLevel" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PseudoStockType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PseudoStockLevel" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SChanLinkID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SChanPrice" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SChanGrossPrice" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SChanVatRateID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductType" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierPrice" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LengthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WidthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HeightMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WeightGM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LargeLetterCompatible" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExternalProductId" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AdditionalShippingLabel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="defaultImageUrl" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DeliveryLeadTimeDays" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductTemplateId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductTemplateMode" type="tns:ProductTemplateMode" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AdditionalBarcodes" type="tns:ArrayOfProductBarcode" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Locations" type="tns:ArrayOfWarehouseBay" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Dimensions" type="tns:ProductDimensions" />
+      <xs:element minOccurs="1" maxOccurs="1" name="saveWeightChecked" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="saveDimsChecked" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UseDispatchIdentifiers" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DispatchIdentifierOption" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchIdentifierOptionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ProductTemplateMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotTemplated" />
+      <xs:enumeration value="TemplateActive" />
+      <xs:enumeration value="TemplateDisconnected" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfProductBarcode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductBarcode" nillable="true" type="tns:ProductBarcode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductBarcode">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductBarcodeTypeEnum" type="tns:ProductBarcodeType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductBarcodeType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIdEnum" type="tns:IStatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FromDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ToDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarcodeNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EcomProductId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FunctionalParameter" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ProductBarcodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="additional" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IStatusID">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="PreDelete" />
+      <xs:enumeration value="Archived" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="Disabled" />
+      <xs:enumeration value="Enabled" />
+      <xs:enumeration value="PartAdd" />
+      <xs:enumeration value="PartUpdate" />
+      <xs:enumeration value="PartCancel" />
+      <xs:enumeration value="Completed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfWarehouseBay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseBay" nillable="true" type="tns:WarehouseBay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WarehouseBay">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehouseBayTypeEnum" type="tns:WarehouseBayType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WarehouseName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AvailableStock" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Products" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehouseID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Aisle" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BayNumber" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Shelf" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehouseBayType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIdEnum" type="tns:StatusID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="WarehouseBayType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="TemporaryBay" />
+      <xs:enumeration value="ScannerBay" />
+      <xs:enumeration value="DeliveryBay" />
+      <xs:enumeration value="PackingBay" />
+      <xs:enumeration value="ProcessingBay" />
+      <xs:enumeration value="FBADefault" />
+      <xs:enumeration value="ReturnsBay" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PreventExtendedSerialization" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AdditionalBarcodes" type="tns:ArrayOfProductBarcode" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Suppliers" type="tns:ArrayOfFactory" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionValues" type="tns:ArrayOfProductOptionValue" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Attributes" type="tns:ArrayOfProductOptionValue" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Range" type="tns:ProductRange" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExternalStockLevel" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChannelCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductTypeEnum" type="tns:ProductType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductStockTypeEnum" type="tns:ProductStockType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchIdentifierOptionEnum" type="tns:ProductDispatchIdentifierOption" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FullName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StockLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductImage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductRangeName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AdditionalShippingLabel" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AutoPurchaseOrderType" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCodeNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BasePrice" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandDetailsId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DeliveryLeadTimeDays" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndOfLine" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Error" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExternalProductId" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HeightMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LargeLetterCompatible" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LengthMM" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManufacturerSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MatchOptions" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PreOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductRangeID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductTemplateId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductTemplateMode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductVATRate" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderAtStockQuantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderMaxStock" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderStockType" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SearchText" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Thumbs200x200" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Thumbs75x75" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATRateID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WeightGM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WidthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductStockType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderBoxQuantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SupplierPrice" type="xs:float" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchIdentifierOption" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfFactory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Factory" nillable="true" type="tns:Factory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Factory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierSKU" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SupplierPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductLinks" type="tns:ArrayOfProductFactoryLink" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DaysFromOrderToCompletion" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DaysFromCompletionToDelivery" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliveryMethod" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SageAccountID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageVATCode" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencySymbol" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExchangeRate" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NominalCodeID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoginID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FactoryPOType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfProductFactoryLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductFactoryLink" nillable="true" type="tns:ProductFactoryLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductFactoryLink">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FactoryID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="POType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PriceDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierSKU" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PricePrecision" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfProductOptionValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductOptionValue" nillable="true" type="tns:ProductOptionValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductOptionValue">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RangeId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OptionId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ValueId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsMasterOption" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RangeName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionValue" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RangeSKU" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="isDropdown" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductRange">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Manufacturer" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManufacturerSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NeckShape" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndOfLine" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PreOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Weight" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LastStockCheck" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GroupBy" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehousePickOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateAdded" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ProductType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Single" />
+      <xs:enumeration value="SimplePack" />
+      <xs:enumeration value="ComplexPack" />
+      <xs:enumeration value="Template" />
+      <xs:enumeration value="Bundle" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProductStockType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Standard" />
+      <xs:enumeration value="ExcludeAll" />
+      <xs:enumeration value="ExcludeMultiMultipack" />
+      <xs:enumeration value="ExcludeSingle" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProductDispatchIdentifierOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Off" />
+      <xs:enumeration value="FreeText" />
+      <xs:enumeration value="UniquePerProduct" />
+      <xs:enumeration value="PreselectedSingleUse" />
+      <xs:enumeration value="PreselectedMultiUse" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ProductDimensions">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDimensions">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="ProductId" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Labels" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BaseDimensions" abstract="true">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Width" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Length" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Height" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Weight" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DimensionType" type="tns:DimensionMeasurement" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WeightType" type="tns:WeightMeasurement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DimensionMeasurement">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="millimeter" />
+      <xs:enumeration value="centimeter" />
+      <xs:enumeration value="meter" />
+      <xs:enumeration value="kilometer" />
+      <xs:enumeration value="inch" />
+      <xs:enumeration value="feet" />
+      <xs:enumeration value="mile" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WeightMeasurement">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="gram" />
+      <xs:enumeration value="kilogram" />
+      <xs:enumeration value="ounce" />
+      <xs:enumeration value="pound" />
+      <xs:enumeration value="stone" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfAPISalesChannelLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APISalesChannelLink" nillable="true" type="tns:APISalesChannelLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APISalesChannelLink">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="linkID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="channelID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATRateId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetPrice" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GrossPrice" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATRate" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfItemBayStockLevel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemBayStockLevel" nillable="true" type="tns:ItemBayStockLevel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemBayStockLevel">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehouseBayId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WarehouseBayName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="positionOnRoute" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OldAmount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehouseBayStockMovementId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Available" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Allocated" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Picked" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSupplierOrderItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplierOrderItem" nillable="true" type="tns:SupplierOrderItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SupplierOrderItem">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FactoryOrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="QuantityOrdered" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="QuantityDelivered" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FactoryID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="POSent" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Date" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResponseObjectOfAPIProductRange">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIProductRange" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="addProductRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="addProductRangeResult" type="tns:ResponseObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductRanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:ServiceRequestObjectOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfListOfProductRangeSummary">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfProductRangeSummary" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfProductRangeSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductRangeSummary" nillable="true" type="tns:ProductRangeSummary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductRangeSummary">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManufacturerSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getProductRangesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getProductRangesResult" type="tns:ResponseObjectOfListOfProductRangeSummary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeletedProductRanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:ServiceRequestObjectOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeletedProductRangesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getDeletedProductRangesResult" type="tns:ResponseObjectOfListOfProductRangeSummary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductRangeById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfInt32">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getProductRangeByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getProductRangeByIdResult" type="tns:ResponseObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateProductRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateProductRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="updateProductRangeResult" type="tns:ResponseObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setManufacturerSKU">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setManufacturerSKUResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setManufacturerSKUResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setNameResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setNeckShape">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setNeckShapeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setNeckShapeResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setEndOfLine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setEndOfLineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setEndOfLineResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setPreOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setPreOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setPreOrderResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setLastStockCheck">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setLastStockCheckResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setLastStockCheckResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setGroupBy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setGroupByResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setGroupByResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setWarehousePickOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setWarehousePickOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setWarehousePickOrderResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setStatusResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteProductRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteProductRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="deleteProductRangeResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRangeOptionLink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRangeOptionLink" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfAPIProductRangeOptionLink">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIProductRangeOptionLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIProductRangeOptionLink">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="OptionID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductRangeID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsWebShopFilter" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsWebShopSelect" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsWebShopGroupBy" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsEbayOption" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsEbayImageOption" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsAmazonOption" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsAmazonImageOption" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResponseObjectOfInt32">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="addRangeOptionLinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="addRangeOptionLinkResult" type="tns:ResponseObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeRangeOptionLink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIProductRangeOptionLink" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeRangeOptionLinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="removeRangeOptionLinkResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

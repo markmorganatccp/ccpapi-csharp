@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WebServicesCommonLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WebServicesCommonLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiProductsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CCPInterface.Core.Enums" />
+  <xs:complexType name="RequestObjectOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="RequestObjectOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/WebServicesCommonLibrary" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecurityHash" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestObjectOfstring" nillable="true" type="tns:RequestObjectOfstring" />
+  <xs:complexType name="ResponseObjectOfboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponseObjectOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/WebServicesCommonLibrary" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfApiFault" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseObjectOfboolean" nillable="true" type="tns:ResponseObjectOfboolean" />
+  <xs:complexType name="ArrayOfApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiFault" nillable="true" type="tns:ApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiFault" nillable="true" type="tns:ArrayOfApiFault" />
+  <xs:complexType name="ApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Detail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ElementName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorCode" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CCPInterface.Core.Enums" minOccurs="0" name="FaultType" type="q1:CCPApiFaultType" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestNodeIndex" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CCPInterface.Core.Enums" minOccurs="0" name="ccpApiErrorCodeType" type="q2:ErrorCodeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiFault" nillable="true" type="tns:ApiFault" />
+</xs:schema>

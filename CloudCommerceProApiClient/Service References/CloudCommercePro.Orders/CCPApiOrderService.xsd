@@ -1,0 +1,1728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="getInvoiceSummaryForOrderID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfInt32">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getInvoiceSummaryForOrderIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getInvoiceSummaryForOrderIDResult" type="tns:ResponseObjectOfAPIInvoiceSummary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfAPIInvoiceSummary">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIInvoiceSummary" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIInvoiceSummary">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProformaID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="InvoiceDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATAmount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AmountPaid" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiFault" nillable="true" type="tns:ApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="RequestNodeIndex" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ccpApiErrorCodeType" type="tns:ErrorCodeType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Detail" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ElementName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FaultType" type="tns:CCPApiFaultType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ErrorCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InvalidBrandID" />
+      <xs:enumeration value="InvalidID" />
+      <xs:enumeration value="RecordAlreadyExists" />
+      <xs:enumeration value="MissingRequiredData" />
+      <xs:enumeration value="ObjectNotFound" />
+      <xs:enumeration value="GeneralException" />
+      <xs:enumeration value="InvalidData" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CCPApiFaultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AuthenticationFault" />
+      <xs:enumeration value="AuthorizationFault" />
+      <xs:enumeration value="ValidationFault" />
+      <xs:enumeration value="General" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQuery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfApiOrderQuery">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ApiOrderQuery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApiOrderQuery">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Skip" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Take" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerOrderStatusTypes" type="tns:ArrayOfCustomerOrderStatusType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCustomerOrderStatusType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerOrderStatusType" type="tns:CustomerOrderStatusType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="CustomerOrderStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ready" />
+      <xs:enumeration value="picked" />
+      <xs:enumeration value="picking" />
+      <xs:enumeration value="packed" />
+      <xs:enumeration value="packing" />
+      <xs:enumeration value="shipped" />
+      <xs:enumeration value="partiallyshipped" />
+      <xs:enumeration value="dropshipdetected" />
+      <xs:enumeration value="dropshipemailsent" />
+      <xs:enumeration value="advanceddropshipemailsent" />
+      <xs:enumeration value="DeliveryAddressChange" />
+      <xs:enumeration value="BillingAddressChange" />
+      <xs:enumeration value="ShippingRuleChange" />
+      <xs:enumeration value="StatusDescriptionChange" />
+      <xs:enumeration value="DispatchDateChange" />
+      <xs:enumeration value="Paid" />
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Edited" />
+      <xs:enumeration value="Unallocated" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="Allocated" />
+      <xs:enumeration value="Returned" />
+      <xs:enumeration value="Ignored" />
+      <xs:enumeration value="Refunded" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SearchResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfApiOrderQueryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ApiOrderQueryResponse" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApiOrderQueryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Start" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="End" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="totalRecords" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="orders" type="tns:ArrayOfAPIOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPIOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIOrder" nillable="true" type="tns:APIOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIOrder">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="isPickListPrinted" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickStatus" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OrderReceivedDate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OrderDispatchedDate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Customer" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannel" type="tns:APISalesChannel" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Status" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DropshipDetected" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DropshipSuppliers" type="tns:ArrayOfDropShipSupplier" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderPickStatus" type="tns:OrderPickStatus" />
+      <xs:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfAPIOrderItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APISalesChannel">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Country" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExternalShopID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfDropShipSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DropShipSupplier" nillable="true" type="tns:DropShipSupplier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DropShipSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SupplierID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManufacturerSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DropshipType" type="tns:FactoryPOType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FactoryPOType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="standard" />
+      <xs:enumeration value="dropship" />
+      <xs:enumeration value="dropshipmanual" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OrderPickStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PickReady" />
+      <xs:enumeration value="CantPick" />
+      <xs:enumeration value="LockPick" />
+      <xs:enumeration value="Picked" />
+      <xs:enumeration value="Picking" />
+      <xs:enumeration value="CourierError" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfAPIOrderItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIOrderItem" nillable="true" type="tns:APIOrderItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIOrderItem">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExternalProductId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AdditionalBarCodes" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VatRateID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Discount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UseNetPrice" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountCalculatedInPrice" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="createOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIOrderCreateOrderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfAPIOrderCreateOrderRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIOrderCreateOrderRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIOrderCreateOrderRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="nCustomerID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intBrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nSeasonID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nLoginID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nOrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nSendEmail" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="strReference" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nPaymentTermID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="strDeliveryDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ShipByDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="strPostageOverride" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetCarriage" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATCarriage" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="decCarriageTotal" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intAddByLoginID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intPaymentStatus" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intDaysOfCredit" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="doTriggers" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingService" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ShippingRuleID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExternalReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Note" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddress" type="tns:APIOrderBillingAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress" type="tns:APIOrderShippingAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="orderItems" type="tns:ArrayOfAPIOrderItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIOrderBillingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddressCompanyName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingContactFirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingContactLastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddress1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddress2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingTown" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingCounty" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingCountry" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingPostCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingTelephone" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingMobile" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIOrderShippingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddressCompanyName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingContactFirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingContactLastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingTown" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingCounty" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingCountry" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingPostCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingTelephone" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingMobile" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="createOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="createOrderResult" type="tns:ResponseObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfInt32">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmitOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIOrderCreateOrderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubmitOrderResult" type="tns:ResponseObjectOfOrderDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfOrderDetail">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:OrderDetail" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrderDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="APIOrderItems" type="tns:ArrayOfCcpCustomerOrderItem" />
+      <xs:element minOccurs="0" maxOccurs="1" name="customer" type="tns:Customer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="order" type="tns:CustomerOrder" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress" type="tns:APIOrderShippingAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="APIOrderBillingAddress" type="tns:APIOrderBillingAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CourierSelection" type="tns:BrandCourierSelection" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CourierServiceRule" type="tns:CourierServicesRules" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerOrderDispatches" type="tns:ArrayOfCustomerOrderDispatch" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerOrderShipments" type="tns:ArrayOfCustomerOrderShipment" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Country" type="tns:Country" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCcpCustomerOrderItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ccpCustomerOrderItem" nillable="true" type="tns:ccpCustomerOrderItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ccpCustomerOrderItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Meta" type="tns:ArrayOfCCPSaleItemMeta" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Dispatched" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PendingDispatch" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Returns" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Vat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PriceGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Discount" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RowDiscountReason" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowTotalVATGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemDiscountVATGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RowDiscountVATGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Refund" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageUniqueNumber" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerOrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductInfo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductShortName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductDescription" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BoxNo" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATRateID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATRate" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SaleOrderItemID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PartOfPack" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CompanyName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TradingName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StockCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductOptionValues" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductRangeID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductRangeName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AllocatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AllocatedQuantity" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AllocatedReason" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ImageURL" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AmountSentToChannel" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ParentProductID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ParentProductName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderItemProductType" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GiftMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ParentProductQuantity" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Product" type="tns:Product" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickFromWarehouseBayId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickFromWarehouseId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencySymbol" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WidthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LengthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HeightMM" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AttachmentHoverHTML" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCCPSaleItemMeta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CCPSaleItemMeta" nillable="true" type="tns:CCPSaleItemMeta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CCPSaleItemMeta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="type" />
+      <xs:element minOccurs="0" maxOccurs="1" name="key" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="label" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PreventExtendedSerialization" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AdditionalBarcodes" type="tns:ArrayOfProductBarcode" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Suppliers" type="tns:ArrayOfFactory" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionValues" type="tns:ArrayOfProductOptionValue" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Attributes" type="tns:ArrayOfProductOptionValue" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Range" type="tns:ProductRange" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExternalStockLevel" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChannelCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductTypeEnum" type="tns:ProductType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductStockTypeEnum" type="tns:ProductStockType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchIdentifierOptionEnum" type="tns:ProductDispatchIdentifierOption" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FullName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StockLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductImage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductRangeName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AdditionalShippingLabel" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AutoPurchaseOrderType" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarCodeNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BasePrice" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandDetailsId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateAdded" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DeliveryLeadTimeDays" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndOfLine" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Error" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExternalProductId" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HeightMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LargeLetterCompatible" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LengthMM" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManufacturerSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MatchOptions" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PreOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductRangeID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductTemplateId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductTemplateMode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductVATRate" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderAtStockQuantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderMaxStock" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderStockType" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SearchText" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Thumbs200x200" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Thumbs75x75" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATRateID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WeightGM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WidthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductStockType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PurchaseOrderBoxQuantity" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SupplierPrice" type="xs:float" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchIdentifierOption" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfProductBarcode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductBarcode" nillable="true" type="tns:ProductBarcode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductBarcode">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductBarcodeTypeEnum" type="tns:ProductBarcodeType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductBarcodeType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIdEnum" type="tns:IStatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FromDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ToDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BarcodeNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EcomProductId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FunctionalParameter" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ProductBarcodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="additional" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IStatusID">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="PreDelete" />
+      <xs:enumeration value="Archived" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="Disabled" />
+      <xs:enumeration value="Enabled" />
+      <xs:enumeration value="PartAdd" />
+      <xs:enumeration value="PartUpdate" />
+      <xs:enumeration value="PartCancel" />
+      <xs:enumeration value="Completed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfFactory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Factory" nillable="true" type="tns:Factory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Factory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierSKU" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SupplierPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductLinks" type="tns:ArrayOfProductFactoryLink" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DaysFromOrderToCompletion" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DaysFromCompletionToDelivery" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliveryMethod" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SageAccountID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageVATCode" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencySymbol" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExchangeRate" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NominalCodeID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoginID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FactoryPOType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfProductFactoryLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductFactoryLink" nillable="true" type="tns:ProductFactoryLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductFactoryLink">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FactoryID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="POType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PriceDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierSKU" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PricePrecision" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StatusID">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="PartCancel" />
+      <xs:enumeration value="PartUpdate" />
+      <xs:enumeration value="PartAdd" />
+      <xs:enumeration value="Enabled" />
+      <xs:enumeration value="Disabled" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="Archived" />
+      <xs:enumeration value="PreDelete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfProductOptionValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductOptionValue" nillable="true" type="tns:ProductOptionValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductOptionValue">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RangeId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OptionId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ValueId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsMasterOption" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RangeName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OptionValue" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RangeSKU" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="isDropdown" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductRange">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Manufacturer" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManufacturerSKU" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NeckShape" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EndOfLine" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PreOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Weight" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LastStockCheck" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GroupBy" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehousePickOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateAdded" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ProductType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Single" />
+      <xs:enumeration value="SimplePack" />
+      <xs:enumeration value="ComplexPack" />
+      <xs:enumeration value="Template" />
+      <xs:enumeration value="Bundle" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProductStockType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Standard" />
+      <xs:enumeration value="ExcludeAll" />
+      <xs:enumeration value="ExcludeMultiMultipack" />
+      <xs:enumeration value="ExcludeSingle" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProductDispatchIdentifierOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Off" />
+      <xs:enumeration value="FreeText" />
+      <xs:enumeration value="UniquePerProduct" />
+      <xs:enumeration value="PreselectedSingleUse" />
+      <xs:enumeration value="PreselectedMultiUse" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="CanSplitOrders" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TypeEnum" type="tns:CustomerType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CompanyName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TradingName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VATNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageVATCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreditLimit" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Email" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AgentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SageAccountID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PaymentTermID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BarCodeGenerator" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoginID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ParentID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SystemStatus" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EcomID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SpecialDeliveryInstructions" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SpecDelInstrNote" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OnWatchList" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WatchListReason" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:IStatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="QuickBooksId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="CustomerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TradeAndRetail" />
+      <xs:enumeration value="Trade" />
+      <xs:enumeration value="Retail" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="CustomerOrder">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelType" nillable="true" type="tns:SalesChannelType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrentShipmentID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Customer" type="tns:Customer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannel" type="tns:SalesChannel" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderType" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliveryAddress" type="tns:Address" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalValue" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PostageValue" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemValue" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GroupedOrder" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CourierType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsInternational" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CourierRule" type="tns:BrandCourierSelection" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingTariff" type="tns:CourierServicesRules" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Reference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExternalOrderRef" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DeliveryDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SeasonID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Payment" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PartOrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickTicketSent" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EcomOrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BarCodeReader" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ShippingType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PostageNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PostageVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Postage" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PostageNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PostageVATGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GBPPost" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalVATGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountGrossGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountNetGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountVAT" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DiscountVATGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CountryID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExchangeRate" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickListPrinted" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Note" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PreDispatchTrackingNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PreDispatchTrackingUrl" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Priority" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DefaultCSRuleID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DefaultCSRuleCost" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DefaultCSRuleCostGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DefaultBCSID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingServiceName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickStatus" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LockPickUntil" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoyaltyPayment" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoyaltyPointsAvailable" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoyaltyPointsSpent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoyaltyPointsEarned" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsFBA" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalFactoryCost" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalFactoryCostGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalExtraCost" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalExtraCostGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalCost" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalCostGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalProfit" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalProfitGBP" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DeliveryAddressID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BillingAddressID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsExported" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExportedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HideUntilDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AssignedToWarehouseId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExternalOrderType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ShipByDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExpectedTotalGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalRowNetBeforeDiscount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalRowVatBeforeDiscount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalRowGrossBeforeDiscount" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalOrderDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalOrderDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalOrderDiscountVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalItemDiscountGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalItemDiscountNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalItemDiscountVat" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExtraCostsGross" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExtraCostsNet" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExtraCostsVat" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SalesChannelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All" />
+      <xs:enumeration value="Marketplace" />
+      <xs:enumeration value="Amazon" />
+      <xs:enumeration value="Ebay" />
+      <xs:enumeration value="Epos" />
+      <xs:enumeration value="TelephoneOrders" />
+      <xs:enumeration value="Magento" />
+      <xs:enumeration value="BigCommerce" />
+      <xs:enumeration value="WooCommerce" />
+      <xs:enumeration value="Wholesale" />
+      <xs:enumeration value="CcpAPI" />
+      <xs:enumeration value="CcpShopify" />
+      <xs:enumeration value="GoogleAdwords" />
+      <xs:enumeration value="CDiscount" />
+      <xs:enumeration value="TescoDirect" />
+      <xs:enumeration value="Magento2" />
+      <xs:enumeration value="eBayMotors" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SalesChannel">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChanneEnum" type="tns:SalesChannelType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Selected" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WarehouseInboundLinks" type="tns:ArrayOfWarehouseSalesChannelLink" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WarehouseOutboundLinks" type="tns:ArrayOfWarehouseSalesChannelLink" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AccountID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CountryID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PreOrder" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelEnumID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannelEnumName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageNominalCodeID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExternalShopID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:IStatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NominalCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CarriageNominalCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AmazonFBANominalCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankAccount" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesCurrencyCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PaymentCurrencyCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AccountsPackageActive" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PseudoStockLevelType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoyaltyPointPerValue" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoyaltyValuePerPoint" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Note" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UsesFBA" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsCCP" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LanguageID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfWarehouseSalesChannelLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseSalesChannelLink" nillable="true" type="tns:WarehouseSalesChannelLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WarehouseSalesChannelLink">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehouseSalesChannelLinkTypeEnum" type="tns:WarehouseSalesChannelLinkType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderInActionEnum" type="tns:OrderInAction" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderOutActionEnum" type="tns:OrderOutAction" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WarehouseName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SalesChannelName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehouseID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WarehouseSalesChannelLinkType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIdEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Priority" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderInAction" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderOutAction" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="WarehouseSalesChannelLinkType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="standard" />
+      <xs:enumeration value="inbound" />
+      <xs:enumeration value="outbound" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OrderInAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="standard" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OrderOutAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="standard" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AddressID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VatLiable" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AddressTitle" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PostCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UserID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TownCity" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CountyRegion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Country" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CountryID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Company" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TelNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MobNo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BrandCourierSelection">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Selected" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BrandCourierSelectionProductEnabled" type="tns:ArrayOfBrandCourierSelectionProduct" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ActiveRules" type="tns:ArrayOfBrandCourierSelectionRules" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RuleApplied" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandCourierSelectionTypeEnum" type="tns:BrandCourierSelectionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LabelTypeEnum" type="tns:LabelType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SendCSVEnum" type="tns:SendCSV" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATEvaluationTypeEnum" type="tns:VATEvaluationType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CourierServicesGroupID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FrontEndPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RuleName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CourierServicesRuleId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BaselineCost" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandCourierSelectionType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExceptCountrySelected" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AdditionalShippingLabel" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="InitialWeight" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CostPerKg" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LabelType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SendCSV" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BonusScore" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LabelTemplate" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATValue" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATEvaluationType" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerFacingName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerFacingDescription" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SignatureValue" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PageSizeOverride" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BaselineWeight" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RuleCourierAccount" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EstDeliveryDays" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsPriority" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PriorityDaysToDeliver" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BaselineWeightMax" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CopiedFromId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsDefaultRule" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfBrandCourierSelectionProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BrandCourierSelectionProduct" nillable="true" type="tns:BrandCourierSelectionProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BrandCourierSelectionProduct">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandCourierSelectionProductTypeEnum" type="tns:BrandCourierSelectionProductType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProductName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="id" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandCourierSelectionProductType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIdEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandCourierSelectionID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="QuantityFrom" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="QuantityTo" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductRangeId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IncludeAllRange" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="isRequired" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LabelQuantity" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="InitialQuantity" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="InitialQuantityCost" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FurtherQuantity" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FurtherQuantityCost" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="BrandCourierSelectionProductType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfBrandCourierSelectionRules">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BrandCourierSelectionRules" nillable="true" type="tns:BrandCourierSelectionRules" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BrandCourierSelectionRules">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="id" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandCourierSelectionID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RuleName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Field" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Operator" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIdEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsOptional" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="BrandCourierSelectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="ProductGroup" />
+      <xs:enumeration value="SingleProduct" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LabelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="LabelPerItem" />
+      <xs:enumeration value="LabelPerProduct" />
+      <xs:enumeration value="AdditionalLabelsFromProduct" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SendCSV">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DontSend" />
+      <xs:enumeration value="WithLabel" />
+      <xs:enumeration value="InsteadOfLabel" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VATEvaluationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Percentage" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="CourierServicesRules">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="APICommunicationModeEnum" type="tns:APICommunicationMode" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CourierServicesGroupID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Descsription" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxWeightGRAM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxLengthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxWidthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxDepthMM" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MaxVolumeMM" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CourierServiceCode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIdEnum" type="tns:StatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="APICommunicationMode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="APICommunicationMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Disabled" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfCustomerOrderDispatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerOrderDispatch" nillable="true" type="tns:CustomerOrderDispatch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustomerOrderDispatch">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerOrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateAndTime" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CourierServicesRulesID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:StatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CourierTrackingNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PackagingOption" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PackageSplitdown" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerOrderShipmentID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchTypeEnum" type="tns:DispatchType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DispatchType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Dropship" />
+      <xs:enumeration value="AdvancedDropship" />
+      <xs:enumeration value="AmazonFulfillment" />
+      <xs:enumeration value="APIOrderDispatch" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfCustomerOrderShipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerOrderShipment" nillable="true" type="tns:CustomerOrderShipment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustomerOrderShipment">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Courier" type="tns:ShippingCourierType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Username" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NoItems" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RuleUsed" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TariffUsed" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WeightGM" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Dispatch" type="tns:CustomerOrderDispatch" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerOrder" type="tns:CustomerOrder" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Customer" type="tns:Customer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliveryAddress" type="tns:Address" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CourierType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerOrderID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LabelURL" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ManifestID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ShipmentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShipmentID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:IStatusID" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecondaryParameter" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ShippingCourierType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RoyalMail" />
+      <xs:enumeration value="Interlink" />
+      <xs:enumeration value="UPS" />
+      <xs:enumeration value="ParcelForce" />
+      <xs:enumeration value="Yodel" />
+      <xs:enumeration value="Manual" />
+      <xs:enumeration value="DPD" />
+      <xs:enumeration value="XDP" />
+      <xs:enumeration value="LowCostParcels" />
+      <xs:enumeration value="DHL" />
+      <xs:enumeration value="APC" />
+      <xs:enumeration value="UKMail" />
+      <xs:enumeration value="RoyalMailNetDespatch" />
+      <xs:enumeration value="DespatchBay" />
+      <xs:enumeration value="Fedex" />
+      <xs:enumeration value="TNT" />
+      <xs:enumeration value="External" />
+      <xs:enumeration value="JamesAndJames" />
+      <xs:enumeration value="GlobalE" />
+      <xs:enumeration value="AmazonLogistics" />
+      <xs:enumeration value="GFS" />
+      <xs:enumeration value="DX" />
+      <xs:enumeration value="B2C" />
+      <xs:enumeration value="ParcelStation" />
+      <xs:enumeration value="IntersoftRoyalMail" />
+      <xs:enumeration value="MyHermes" />
+      <xs:enumeration value="ParcelHub" />
+      <xs:enumeration value="Panther" />
+      <xs:enumeration value="ParcelForceNetDespatch" />
+      <xs:enumeration value="TrakPak" />
+      <xs:enumeration value="APCNewHorizon" />
+      <xs:enumeration value="SecuredMail" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Country">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Selected" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShortName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Language" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Locale" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencySymbol" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CountryCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ThreeLetterISOCode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CountryISOCode" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CurrencyISOCode" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AmazonMarketPlaceID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AmazonEndPoint" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AmazonURL" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EbayCurrencyCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EbayCountryCode" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EbaySiteID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EbayGlobalID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExchangeRate" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SageTaxCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EUCountry" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VatLiable" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StatusIDEnum" type="tns:IStatusID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EbaySiteURL" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIGetOrdersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfAPIGetOrdersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIGetOrdersRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIGetOrdersRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="intBrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dtFilter" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="strCustType" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="strPriority" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="strOrderType" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="numberofdays" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="showUnallocated" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResponseObjectOfListOfAPIOrder">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfAPIOrder" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getOrdersResult" type="tns:ResponseObjectOfListOfAPIOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOrderById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfAPIOrder">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIOrder" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getOrderByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getOrderByIdResult" type="tns:ResponseObjectOfAPIOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOrderDetailsById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOrderDetailsByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getOrderDetailsByIdResult" type="tns:ResponseObjectOfOrderDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOrderDetailsByReference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfArrayOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getOrderDetailsByReferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getOrderDetailsByReferenceResult" type="tns:ResponseObjectOfOrderDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOrdersForDispatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfApiOrderQueryRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ApiOrderQueryRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApiOrderQueryRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannnelID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Skip" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Take" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerType" type="tns:apiCustomerType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NoOfDays" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="apiCustomerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TradeAndRetail" />
+      <xs:enumeration value="Trade" />
+      <xs:enumeration value="Retail" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="getOrdersForDispatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getOrdersForDispatchResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriorityOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriorityOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getPriorityOrdersResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPrintedOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPrintedOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getPrintedOrdersResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNotPrintedOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNotPrintedOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getNotPrintedOrdersResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllocatedOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllocatedOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getAllocatedOrdersResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUnallocatedOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUnallocatedOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getUnallocatedOrdersResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPickedOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPickedOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getPickedOrdersResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNotPickedOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNotPickedOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getNotPickedOrdersResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCompletedOrdersNoOfDays">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCompletedOrdersNoOfDaysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getCompletedOrdersNoOfDaysResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUnprocessedOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQueryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUnprocessedOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="getUnprocessedOrdersResult" type="tns:ResponseObjectOfApiOrderQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setPickListPrinted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setPickListPrintedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setPickListPrintedResult" type="tns:ResponseObjectOfAPIOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="markOrderAsPicked">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="markOrderAsPickedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="markOrderAsPickedResult" type="tns:ResponseObjectOfAPIOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setPickStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPISetOrderPickStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfAPISetOrderPickStatusRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APISetOrderPickStatusRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APISetOrderPickStatusRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PickStatus" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="setPickStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="setPickStatusResult" type="tns:ResponseObjectOfAPIOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DispatchOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIDispatchOrderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfAPIDispatchOrderRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIDispatchOrderRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIDispatchOrderRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ccpApiDispatchItems" type="tns:ArrayOfCcpApiDispatchItem" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DispatchOptions" type="tns:ccpApiDispatchOptions" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchType" type="tns:ccpApiDispatchType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ConsignmentReferenceNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCcpApiDispatchItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ccpApiDispatchItem" nillable="true" type="tns:ccpApiDispatchItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ccpApiDispatchItem">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="OrderItemId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="QuantityToDispatch" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProductId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ccpApiDispatchOptions">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="UpdateChannel" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UpdateCCP" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RestrictLabels" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MarkAsPicked" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AllowPickReset" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UseShippingRuleMaxWeight" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OverwriteOrderNotes" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OverwriteOrderNoteType" type="tns:OverwriteOrderNoteType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OrderNote" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreditNote" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Reference" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DispatchDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="overrides" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Refund" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CourierId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CourierServiceRulesId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BCSID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MarkPicksAsDone" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PackagingOption" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="OverwriteOrderNoteType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="All" />
+      <xs:enumeration value="Empty" />
+      <xs:enumeration value="Filled" />
+      <xs:enumeration value="Prepend" />
+      <xs:enumeration value="Append" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ccpApiDispatchType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Full" />
+      <xs:enumeration value="Partial" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ResponseObjectOfAPIDispatchOrderResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIDispatchOrderResponse" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIDispatchOrderResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShipmentErrorInfo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OrderDetails" type="tns:OrderDetail" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerOrderDispatch" type="tns:CustomerOrderDispatch" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustomerOrderShipment" type="tns:CustomerOrderShipment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DispatchOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="DispatchOrderResult" type="tns:ResponseObjectOfAPIDispatchOrderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShippingRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfListOfAPIShippingRule">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfAPIShippingRule" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPIShippingRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIShippingRule" nillable="true" type="tns:APIShippingRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIShippingRule">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RuleName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ServiceName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CourierServiceCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetShippingRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetShippingRulesResult" type="tns:ResponseObjectOfListOfAPIShippingRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCredentials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfString">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResponseObjectOfBoolean">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestCredentialsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="TestCredentialsResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

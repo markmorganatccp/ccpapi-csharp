@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="41b50c82-19e6-4a5a-9773-ed8f43603740" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ccpapi.local/CCPApiOrderService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CCPApiOrderService.xsd" MetadataType="Schema" ID="59836bf9-3e0a-41ec-b5fe-090ea81dffd1" SourceId="1" SourceUrl="http://ccpapi.local/CCPApiOrderService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CCPApiOrderService.disco" MetadataType="Disco" ID="e41736a5-addb-4276-91d2-03bf7f5b31f1" SourceId="1" SourceUrl="http://ccpapi.local/CCPApiOrderService.svc?disco" />
+    <MetadataFile FileName="CCPApiOrderService.wsdl" MetadataType="Wsdl" ID="065d1d24-8ef5-4ea5-982e-eb4a47b4ae4b" SourceId="1" SourceUrl="http://ccpapi.local/CCPApiOrderService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

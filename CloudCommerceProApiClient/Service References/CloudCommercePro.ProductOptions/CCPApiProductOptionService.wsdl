@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="wcfproductoptions.cloudcommercepro.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="wcfproductoptions.cloudcommercepro.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="wcfproductoptions.cloudcommercepro.com/Imports">
+      <xsd:import schemaLocation="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiProductOptionService.svc?xsd=xsd0" namespace="wcfproductoptions.cloudcommercepro.com" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CCPProductOptions_TestCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentials" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_TestCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_addProductOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:addProductOption" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_addProductOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addProductOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_getProductOptionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductOptionById" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_getProductOptionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductOptionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_getAvailableProductOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAvailableProductOptions" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_getAvailableProductOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAvailableProductOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionName_InputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionName" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionEbayName_InputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionEbayName" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionEbayName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionEbayNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionAmazonName_InputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionAmazonName" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionAmazonName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionAmazonNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionWebName_InputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionWebName" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionWebName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionWebNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionPriority_InputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionPriority" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionPriority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionPriorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionMaster_InputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionMaster" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionMaster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_deleteProductOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteProductOption" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_deleteProductOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteProductOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionStatus" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionHidden_InputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionHidden" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setOptionHidden_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setOptionHiddenResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_getDeletedProductOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDeletedProductOptions" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_getDeletedProductOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDeletedProductOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_addOptionValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:addOptionValue" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_addOptionValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addOptionValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_updateOptionValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateOptionValue" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_updateOptionValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateOptionValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_getOptionValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOptionValues" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_getOptionValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOptionValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_addProductLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:addProductLink" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_addProductLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addProductLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setGroupBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:setGroupBy" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setGroupBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setGroupByResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:setSelect" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setWebShopFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:setWebShopFilter" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setWebShopFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setWebShopFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setEbayOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:setEbayOption" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setEbayOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setEbayOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setAmazonOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:setAmazonOption" />
+  </wsdl:message>
+  <wsdl:message name="CCPProductOptions_setAmazonOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setAmazonOptionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CCPProductOptions">
+    <wsdl:documentation>&lt;summary&gt;
+             test comment here
+            &lt;/summary&gt;</wsdl:documentation>
+    <wsdl:operation name="TestCredentials">
+      <wsdl:documentation>&lt;summary&gt;
+            Tests Credentials are working
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;ServiceRequestObject&amp;lt;String&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt; &lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/TestCredentials" message="tns:CCPProductOptions_TestCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/TestCredentialsResponse" message="tns:CCPProductOptions_TestCredentials_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addProductOption">
+      <wsdl:documentation>&lt;summary&gt;
+            creates a new Product Option e.g. Weight, Size, Material 
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;APIProductOption&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addProductOption" message="tns:CCPProductOptions_addProductOption_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addProductOptionResponse" message="tns:CCPProductOptions_addProductOption_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductOptionById">
+      <wsdl:documentation>&lt;summary&gt;
+            Retreives details of a Product Option
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;int&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;APIProductOption&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getProductOptionById" message="tns:CCPProductOptions_getProductOptionById_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getProductOptionByIdResponse" message="tns:CCPProductOptions_getProductOptionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableProductOptions">
+      <wsdl:documentation>&lt;summary&gt;
+            Retrieves a List of available Product Options
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&amp;gt;RequestObject&amp;lt;int&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;APIProductOption&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getAvailableProductOptions" message="tns:CCPProductOptions_getAvailableProductOptions_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getAvailableProductOptionsResponse" message="tns:CCPProductOptions_getAvailableProductOptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setOptionName">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets Name of an Option e.g. Colour , Size etc
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;APIProductOption&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionName" message="tns:CCPProductOptions_setOptionName_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionNameResponse" message="tns:CCPProductOptions_setOptionName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setOptionEbayName">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets the Ebay Name for an Option
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;APIProductOption&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionEbayName" message="tns:CCPProductOptions_setOptionEbayName_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionEbayNameResponse" message="tns:CCPProductOptions_setOptionEbayName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setOptionAmazonName">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets the Amazon Name for an Option
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;APIProductOption&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionAmazonName" message="tns:CCPProductOptions_setOptionAmazonName_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionAmazonNameResponse" message="tns:CCPProductOptions_setOptionAmazonName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setOptionWebName">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets Web Name for an Option
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;APIProductOption&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionWebName" message="tns:CCPProductOptions_setOptionWebName_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionWebNameResponse" message="tns:CCPProductOptions_setOptionWebName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setOptionPriority">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets Priority / Sort Order of an Option
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;APIProductOption&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionPriority" message="tns:CCPProductOptions_setOptionPriority_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionPriorityResponse" message="tns:CCPProductOptions_setOptionPriority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setOptionMaster">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets whether a given Option is a Master
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionMaster" message="tns:CCPProductOptions_setOptionMaster_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionMasterResponse" message="tns:CCPProductOptions_setOptionMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteProductOption">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets Status of a Product Option to DELETED
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/deleteProductOption" message="tns:CCPProductOptions_deleteProductOption_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/deleteProductOptionResponse" message="tns:CCPProductOptions_deleteProductOption_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setOptionStatus">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets Status of an Option, this can be 1 = Enabled, -1 = DELETED
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionStatus" message="tns:CCPProductOptions_setOptionStatus_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionStatusResponse" message="tns:CCPProductOptions_setOptionStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setOptionHidden">
+      <wsdl:documentation>&lt;summary&gt;
+            Hides a given option
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductOption&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionHidden" message="tns:CCPProductOptions_setOptionHidden_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setOptionHiddenResponse" message="tns:CCPProductOptions_setOptionHidden_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeletedProductOptions">
+      <wsdl:documentation>&lt;summary&gt;
+            Obtains a List of Product Options which have the Status : DELETED
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&amp;gt;RequestObject&amp;lt;int&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getDeletedProductOptions" message="tns:CCPProductOptions_getDeletedProductOptions_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getDeletedProductOptionsResponse" message="tns:CCPProductOptions_getDeletedProductOptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addOptionValue">
+      <wsdl:documentation>&lt;summary&gt;
+            Creates a new value for an option e.g. add value "XX-Large" for Option "Size"
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductRangeOptionValue&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;int&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addOptionValue" message="tns:CCPProductOptions_addOptionValue_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addOptionValueResponse" message="tns:CCPProductOptions_addOptionValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateOptionValue">
+      <wsdl:documentation>&lt;summary&gt;
+            Updates a Value for an option
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductRangeOptionValue&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;APIProductRangeOptionValue&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/updateOptionValue" message="tns:CCPProductOptions_updateOptionValue_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/updateOptionValueResponse" message="tns:CCPProductOptions_updateOptionValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOptionValues">
+      <wsdl:documentation>&lt;summary&gt;
+            Retrieve List of Values for a particular Option eg. Color = blue, red, white, green
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&amp;gt;RequestObject&amp;lt;int&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;List&amp;lt;APIProductRangeOptionValue&amp;gt;&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getOptionValues" message="tns:CCPProductOptions_getOptionValues_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/getOptionValuesResponse" message="tns:CCPProductOptions_getOptionValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addProductLink">
+      <wsdl:documentation>&lt;summary&gt;
+            Links an product to an option value e.g. blue t-shirt has: size : large, colour: blue
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductLink&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;int&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addProductLink" message="tns:CCPProductOptions_addProductLink_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/addProductLinkResponse" message="tns:CCPProductOptions_addProductLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setGroupBy">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets Group By option e.g. Group By Colour for an T-Shirt would display one of each available colour
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductRangeOptionLink&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setGroupBy" message="tns:CCPProductOptions_setGroupBy_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setGroupByResponse" message="tns:CCPProductOptions_setGroupBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setSelect">
+      <wsdl:documentation>&lt;summary&gt;
+            If set to true this option appears as a dropdown list
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductRangeOptionLink&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setSelect" message="tns:CCPProductOptions_setSelect_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setSelectResponse" message="tns:CCPProductOptions_setSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setWebShopFilter">
+      <wsdl:documentation>&lt;summary&gt;
+            If set to true this option will appear as a filter in a CCP Website
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductRangeOptionLink&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setWebShopFilter" message="tns:CCPProductOptions_setWebShopFilter_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setWebShopFilterResponse" message="tns:CCPProductOptions_setWebShopFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setEbayOption">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets how an option will be labelled on E-Bay
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductRangeOptionLink&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setEbayOption" message="tns:CCPProductOptions_setEbayOption_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setEbayOptionResponse" message="tns:CCPProductOptions_setEbayOption_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setAmazonOption">
+      <wsdl:documentation>&lt;summary&gt;
+            Sets how an option will be labelled on Amazon
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;RequestObject&amp;lt;APIProductRangeOptionLink&amp;gt;&lt;/param&gt;
+            &lt;returns&gt;ResponseObject&amp;lt;bool&amp;gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setAmazonOption" message="tns:CCPProductOptions_setAmazonOption_InputMessage" />
+      <wsdl:output wsaw:Action="wcfproductoptions.cloudcommercepro.com/CCPProductOptions/setAmazonOptionResponse" message="tns:CCPProductOptions_setAmazonOption_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

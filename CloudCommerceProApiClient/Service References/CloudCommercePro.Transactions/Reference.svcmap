@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="24cdd5e6-7268-4584-b7d2-edf4b46d7b88" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://devwcfccpservicesbase.cloudcommercepro.com/CcpApiTransactionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CcpApiTransactionService.disco" MetadataType="Disco" ID="7628d7c4-8963-44c8-a8fa-dfdeceaf3299" SourceId="1" SourceUrl="https://devwcfccpservicesbase.cloudcommercepro.com/CcpApiTransactionService.svc?disco" />
+    <MetadataFile FileName="CcpApiTransactionService.wsdl" MetadataType="Wsdl" ID="fb29d0ab-55de-43e9-9647-43fb880bf494" SourceId="1" SourceUrl="https://devwcfccpservicesbase.cloudcommercepro.com/CcpApiTransactionService.svc?wsdl" />
+    <MetadataFile FileName="CcpApiTransactionService.xsd" MetadataType="Schema" ID="b9e217c7-0ca9-4b9a-a299-202e39c725b1" SourceId="1" SourceUrl="https://devwcfccpservicesbase.cloudcommercepro.com/CcpApiTransactionService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

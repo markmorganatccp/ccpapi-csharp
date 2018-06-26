@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CCPApiCustomerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_ICCPApiCustomerService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiCustomerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICCPApiCustomerService_AddCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiCustomerService_AddCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiCustomerService_GetCustomerById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerById" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiCustomerService_GetCustomerById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiCustomerService_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiCustomerService_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiCustomerService_TestCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentials" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiCustomerService_TestCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICCPApiCustomerService">
+    <wsdl:documentation>&lt;summary&gt;
+            customer api
+            &lt;/summary&gt;</wsdl:documentation>
+    <wsdl:operation name="AddCustomer">
+      <wsdl:documentation>&lt;summary&gt;
+            creates new backend customer
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiCustomerService/AddCustomer" message="tns:ICCPApiCustomerService_AddCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiCustomerService/AddCustomerResponse" message="tns:ICCPApiCustomerService_AddCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerById">
+      <wsdl:documentation>&lt;summary&gt;
+            get customer by id
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiCustomerService/GetCustomerById" message="tns:ICCPApiCustomerService_GetCustomerById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiCustomerService/GetCustomerByIdResponse" message="tns:ICCPApiCustomerService_GetCustomerById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:documentation>&lt;summary&gt;
+            get customer by id
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiCustomerService/Search" message="tns:ICCPApiCustomerService_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiCustomerService/SearchResponse" message="tns:ICCPApiCustomerService_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestCredentials">
+      <wsdl:documentation>&lt;summary&gt;
+            tests authentication
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiCustomerService/TestCredentials" message="tns:ICCPApiCustomerService_TestCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiCustomerService/TestCredentialsResponse" message="tns:ICCPApiCustomerService_TestCredentials_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICCPApiCustomerService" type="tns:ICCPApiCustomerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiCustomerService/AddCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerById">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiCustomerService/GetCustomerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiCustomerService/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestCredentials">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiCustomerService/TestCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_ICCPApiCustomerService" type="tns:ICCPApiCustomerService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_ICCPApiCustomerService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiCustomerService/AddCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerById">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiCustomerService/GetCustomerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiCustomerService/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestCredentials">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiCustomerService/TestCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CCPApiCustomerService">
+    <wsdl:port name="BasicHttpBinding_ICCPApiCustomerService" binding="tns:BasicHttpBinding_ICCPApiCustomerService">
+      <soap:address location="http://devwcfccpservicesbase.cloudcommercepro.com/CCPApiCustomerService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_ICCPApiCustomerService" binding="tns:BasicHttpsBinding_ICCPApiCustomerService">
+      <soap:address location="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiCustomerService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

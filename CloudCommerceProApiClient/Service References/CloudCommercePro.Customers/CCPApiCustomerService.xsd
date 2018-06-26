@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AddCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPICustomerAddCustomerRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfAPICustomerAddCustomerRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APICustomerAddCustomerRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APICustomerAddCustomerRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="intBrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CompanyName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TradingName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intCustomerType" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intPaymentTerms" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VATNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Postcode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TownCity" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CountyRegion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Country" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TelNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MobNo" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoginID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AgentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreditLimit" nillable="true" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="AddCustomerResult" type="tns:ResponseObjectOfAPICustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfAPICustomer">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APICustomer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APICustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UserName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VATNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustomerType" type="tns:APICustomerType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SalesChannelID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CompanyName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TradingName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PaymentTerms" type="tns:APICustomerPaymentTerms" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TelNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FaxNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MobNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TownCity" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CountyRegion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Postcode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Country" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LoginID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="APICustomerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Public" />
+      <xs:enumeration value="Retailer" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="APICustomerPaymentTerms">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FullPaymentBeforeDespatch" />
+      <xs:enumeration value="DaysCredit28" />
+      <xs:enumeration value="DaysCredit60" />
+      <xs:enumeration value="FullPaymentWith10PercentEarlyPaymentDiscount" />
+      <xs:enumeration value="FiftyPercentUpfrontBalancein30Days" />
+      <xs:enumeration value="ThirtyPercentDepositBalanceOnDelivery" />
+      <xs:enumeration value="DirectDebit" />
+      <xs:enumeration value="DaysCredit30" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiFault" nillable="true" type="tns:ApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApiFault">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="RequestNodeIndex" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ccpApiErrorCodeType" type="tns:ErrorCodeType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Detail" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ElementName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FaultType" type="tns:CCPApiFaultType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ErrorCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InvalidBrandID" />
+      <xs:enumeration value="InvalidID" />
+      <xs:enumeration value="RecordAlreadyExists" />
+      <xs:enumeration value="MissingRequiredData" />
+      <xs:enumeration value="ObjectNotFound" />
+      <xs:enumeration value="GeneralException" />
+      <xs:enumeration value="InvalidData" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CCPApiFaultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AuthenticationFault" />
+      <xs:enumeration value="AuthorizationFault" />
+      <xs:enumeration value="ValidationFault" />
+      <xs:enumeration value="General" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetCustomerById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfInt32">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetCustomerByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetCustomerByIdResult" type="tns:ResponseObjectOfAPICustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfString">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SearchResult" type="tns:ResponseObjectOfAPICustomerList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfAPICustomerList">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APICustomerList" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APICustomerList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="customers" type="tns:ArrayOfAPICustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPICustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APICustomer" nillable="true" type="tns:APICustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestCredentials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCredentialsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="TestCredentialsResult" type="tns:ResponseObjectOfBoolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfBoolean">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

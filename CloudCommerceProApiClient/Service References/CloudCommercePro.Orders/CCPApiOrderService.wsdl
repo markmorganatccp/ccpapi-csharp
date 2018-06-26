@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CCPApiOrderService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://ccpapi.local/CCPApiOrderService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICCPApiOrderService_getInvoiceSummaryForOrderID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceSummaryForOrderID" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getInvoiceSummaryForOrderID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceSummaryForOrderIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_createOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:createOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_createOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_SubmitOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_SubmitOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrderById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderById" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrderById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrderDetailsById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderDetailsById" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrderDetailsById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderDetailsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrderDetailsByReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderDetailsByReference" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrderDetailsByReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrderDetailsByReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrdersForDispatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrdersForDispatch" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getOrdersForDispatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrdersForDispatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getPriorityOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPriorityOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getPriorityOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPriorityOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getPrintedOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPrintedOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getPrintedOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPrintedOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getNotPrintedOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNotPrintedOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getNotPrintedOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNotPrintedOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getAllocatedOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllocatedOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getAllocatedOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllocatedOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getUnallocatedOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUnallocatedOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getUnallocatedOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUnallocatedOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getPickedOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPickedOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getPickedOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPickedOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getNotPickedOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNotPickedOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getNotPickedOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNotPickedOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getCompletedOrdersNoOfDays_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCompletedOrdersNoOfDays" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getCompletedOrdersNoOfDays_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCompletedOrdersNoOfDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getUnprocessedOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUnprocessedOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_getUnprocessedOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUnprocessedOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_setPickListPrinted_InputMessage">
+    <wsdl:part name="parameters" element="tns:setPickListPrinted" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_setPickListPrinted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setPickListPrintedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_markOrderAsPicked_InputMessage">
+    <wsdl:part name="parameters" element="tns:markOrderAsPicked" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_markOrderAsPicked_OutputMessage">
+    <wsdl:part name="parameters" element="tns:markOrderAsPickedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_setPickStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:setPickStatus" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_setPickStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setPickStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_DispatchOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:DispatchOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_DispatchOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DispatchOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_GetShippingRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShippingRules" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_GetShippingRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShippingRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_TestCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentials" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_TestCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICCPApiOrderService">
+    <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;</wsdl:documentation>
+    <wsdl:operation name="getInvoiceSummaryForOrderID">
+      <wsdl:documentation>&lt;summary&gt;
+            get invoice summary for an order
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getInvoiceSummaryForOrderID" message="tns:ICCPApiOrderService_getInvoiceSummaryForOrderID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getInvoiceSummaryForOrderIDResponse" message="tns:ICCPApiOrderService_getInvoiceSummaryForOrderID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:documentation>&lt;summary&gt;
+            Search for Orders
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/Search" message="tns:ICCPApiOrderService_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/SearchResponse" message="tns:ICCPApiOrderService_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <wsdl:documentation>&lt;summary&gt;
+            creates a back end order
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/createOrder" message="tns:ICCPApiOrderService_createOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/createOrderResponse" message="tns:ICCPApiOrderService_createOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitOrder">
+      <wsdl:documentation>&lt;summary&gt;
+            creates a back end order
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/SubmitOrder" message="tns:ICCPApiOrderService_SubmitOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/SubmitOrderResponse" message="tns:ICCPApiOrderService_SubmitOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrders" message="tns:ICCPApiOrderService_getOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrdersResponse" message="tns:ICCPApiOrderService_getOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderById">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrderById" message="tns:ICCPApiOrderService_getOrderById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrderByIdResponse" message="tns:ICCPApiOrderService_getOrderById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderDetailsById">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrderDetailsById" message="tns:ICCPApiOrderService_getOrderDetailsById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrderDetailsByIdResponse" message="tns:ICCPApiOrderService_getOrderDetailsById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderDetailsByReference">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrderDetailsByReference" message="tns:ICCPApiOrderService_getOrderDetailsByReference_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrderDetailsByReferenceResponse" message="tns:ICCPApiOrderService_getOrderDetailsByReference_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrdersForDispatch">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrdersForDispatch" message="tns:ICCPApiOrderService_getOrdersForDispatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getOrdersForDispatchResponse" message="tns:ICCPApiOrderService_getOrdersForDispatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPriorityOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getPriorityOrders" message="tns:ICCPApiOrderService_getPriorityOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getPriorityOrdersResponse" message="tns:ICCPApiOrderService_getPriorityOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPrintedOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getPrintedOrders" message="tns:ICCPApiOrderService_getPrintedOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getPrintedOrdersResponse" message="tns:ICCPApiOrderService_getPrintedOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNotPrintedOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getNotPrintedOrders" message="tns:ICCPApiOrderService_getNotPrintedOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getNotPrintedOrdersResponse" message="tns:ICCPApiOrderService_getNotPrintedOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllocatedOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getAllocatedOrders" message="tns:ICCPApiOrderService_getAllocatedOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getAllocatedOrdersResponse" message="tns:ICCPApiOrderService_getAllocatedOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUnallocatedOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getUnallocatedOrders" message="tns:ICCPApiOrderService_getUnallocatedOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getUnallocatedOrdersResponse" message="tns:ICCPApiOrderService_getUnallocatedOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPickedOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getPickedOrders" message="tns:ICCPApiOrderService_getPickedOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getPickedOrdersResponse" message="tns:ICCPApiOrderService_getPickedOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNotPickedOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getNotPickedOrders" message="tns:ICCPApiOrderService_getNotPickedOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getNotPickedOrdersResponse" message="tns:ICCPApiOrderService_getNotPickedOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedOrdersNoOfDays">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getCompletedOrdersNoOfDays" message="tns:ICCPApiOrderService_getCompletedOrdersNoOfDays_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getCompletedOrdersNoOfDaysResponse" message="tns:ICCPApiOrderService_getCompletedOrdersNoOfDays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUnprocessedOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/getUnprocessedOrders" message="tns:ICCPApiOrderService_getUnprocessedOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/getUnprocessedOrdersResponse" message="tns:ICCPApiOrderService_getUnprocessedOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setPickListPrinted">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/setPickListPrinted" message="tns:ICCPApiOrderService_setPickListPrinted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/setPickListPrintedResponse" message="tns:ICCPApiOrderService_setPickListPrinted_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="markOrderAsPicked">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/markOrderAsPicked" message="tns:ICCPApiOrderService_markOrderAsPicked_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/markOrderAsPickedResponse" message="tns:ICCPApiOrderService_markOrderAsPicked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setPickStatus">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/setPickStatus" message="tns:ICCPApiOrderService_setPickStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/setPickStatusResponse" message="tns:ICCPApiOrderService_setPickStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DispatchOrder">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/DispatchOrder" message="tns:ICCPApiOrderService_DispatchOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/DispatchOrderResponse" message="tns:ICCPApiOrderService_DispatchOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingRules">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/GetShippingRules" message="tns:ICCPApiOrderService_GetShippingRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/GetShippingRulesResponse" message="tns:ICCPApiOrderService_GetShippingRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestCredentials">
+      <wsdl:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/TestCredentials" message="tns:ICCPApiOrderService_TestCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/TestCredentialsResponse" message="tns:ICCPApiOrderService_TestCredentials_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICCPApiOrderService" type="tns:ICCPApiOrderService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getInvoiceSummaryForOrderID">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getInvoiceSummaryForOrderID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/createOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitOrder">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/SubmitOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderById">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getOrderById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderDetailsById">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getOrderDetailsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderDetailsByReference">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getOrderDetailsByReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrdersForDispatch">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getOrdersForDispatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPriorityOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getPriorityOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrintedOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getPrintedOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotPrintedOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getNotPrintedOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllocatedOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getAllocatedOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUnallocatedOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getUnallocatedOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPickedOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getPickedOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotPickedOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getNotPickedOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompletedOrdersNoOfDays">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getCompletedOrdersNoOfDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUnprocessedOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/getUnprocessedOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPickListPrinted">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/setPickListPrinted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="markOrderAsPicked">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/markOrderAsPicked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPickStatus">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/setPickStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DispatchOrder">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/DispatchOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingRules">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/GetShippingRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestCredentials">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/TestCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CCPApiOrderService">
+    <wsdl:port name="BasicHttpBinding_ICCPApiOrderService" binding="tns:BasicHttpBinding_ICCPApiOrderService">
+      <soap:address location="http://ccpapi.local/CCPApiOrderService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
