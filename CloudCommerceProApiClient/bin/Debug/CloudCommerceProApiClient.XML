@@ -17,6 +17,16 @@
             <param name="_publicKey">your xml public key as string</param>
             <returns>string</returns>
         </member>
+        <member name="T:CloudCommerceProApiClient.Orders">
+            <summary>
+            Makes Service Calls to CCP API Orders endpoint
+            </summary>
+        </member>
+        <member name="P:CloudCommerceProApiClient.Orders.OrdersClient">
+            <summary>
+            Orders Client
+            </summary>
+        </member>
         <member name="T:CloudCommerceProApiClient.Products">
             <summary>
             Makes Service Calls to CCP API Products endpoint
