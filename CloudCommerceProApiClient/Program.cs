@@ -15,13 +15,14 @@ namespace CloudCommerceProApiClient
 
         static void Main(string[] args)
         {
-        //    TestSalesChannelAuth();
 
-        //    GetActiveSalesChannels();
+            TestSalesChannelAuth();
 
-         //   GetProducts();
+            GetActiveSalesChannels();
 
-         //   GetDispatchedOrders();
+            GetProducts();
+
+            GetDispatchedOrders();
 
             BatchStockUpateBySKU();
 
