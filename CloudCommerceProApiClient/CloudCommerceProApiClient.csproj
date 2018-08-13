@@ -48,7 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiSecurityStatic.cs" />
+    <Compile Include="Customers.cs" />
     <Compile Include="Orders.cs" />
+    <Compile Include="ProductOptions.cs" />
+    <Compile Include="ProductRanges.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

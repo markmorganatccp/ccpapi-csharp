@@ -17,6 +17,16 @@
             <param name="_publicKey">your xml public key as string</param>
             <returns>string</returns>
         </member>
+        <member name="T:CloudCommerceProApiClient.Customers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudCommerceProApiClient.Customers.CustomersClient">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:CloudCommerceProApiClient.Orders">
             <summary>
             Makes Service Calls to CCP API Orders endpoint
@@ -25,6 +35,26 @@
         <member name="P:CloudCommerceProApiClient.Orders.OrdersClient">
             <summary>
             Orders Client
+            </summary>
+        </member>
+        <member name="T:CloudCommerceProApiClient.ProductOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudCommerceProApiClient.ProductOptions.ProductOptionsClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CloudCommerceProApiClient.ProductRanges">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CloudCommerceProApiClient.ProductRanges.ProductRangesClient">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:CloudCommerceProApiClient.Products">
