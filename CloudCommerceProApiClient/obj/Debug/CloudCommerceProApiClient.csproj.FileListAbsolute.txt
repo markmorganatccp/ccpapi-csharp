@@ -19,8 +19,8 @@ C:\ApiKit\CloudCommerceProApiClient\CloudCommerceProApiClient\CloudCommerceProAp
 C:\ApiKit\CloudCommerceProApiClient\CloudCommerceProApiClient\CloudCommerceProApiClient\CloudCommerceProApiClient\obj\Debug\CloudCommerceProApiClient.pdb
 C:\Users\markmorgan\Source\repos\ccpapi-csharp\CloudCommerceProApiClient\bin\Debug\CloudCommerceProApiClient.exe.config
 C:\Users\markmorgan\Source\repos\ccpapi-csharp\CloudCommerceProApiClient\bin\Debug\CloudCommerceProApiClient.XML
-C:\Users\markmorgan\Source\repos\ccpapi-csharp\CloudCommerceProApiClient\obj\Debug\CloudCommerceProApiClient.exe
-C:\Users\markmorgan\Source\repos\ccpapi-csharp\CloudCommerceProApiClient\obj\Debug\CloudCommerceProApiClient.pdb
 C:\Users\markmorgan\Source\repos\ccpapi-csharp\CloudCommerceProApiClient\bin\Debug\CloudCommerceProApiClient.exe
 C:\Users\markmorgan\Source\repos\ccpapi-csharp\CloudCommerceProApiClient\bin\Debug\CloudCommerceProApiClient.pdb
+C:\Users\markmorgan\Source\repos\ccpapi-csharp\CloudCommerceProApiClient\obj\Debug\CloudCommerceProApiClient.exe
+C:\Users\markmorgan\Source\repos\ccpapi-csharp\CloudCommerceProApiClient\obj\Debug\CloudCommerceProApiClient.pdb
 C:\Users\markmorgan\Source\repos\ccpapi-csharp\CloudCommerceProApiClient\obj\Debug\CloudCommerceProApiClient.csprojResolveAssemblyReference.cache

@@ -108,13 +108,142 @@
     <None Include="Service References\CloudCommercePro.Customers\CCPApiCustomerService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CloudCommercePro.OrderReturns\CcpApiOrderReturnsService.wsdl" />
-    <None Include="Service References\CloudCommercePro.OrderReturns\CcpApiOrderReturnsService.xsd">
+    <None Include="Service References\CloudCommercePro.Customers\CloudCommerceProApiClient.CloudCommercePro.Customers.AddCustomerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Customers\CloudCommerceProApiClient.CloudCommercePro.Customers.GetCustomerByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Customers\CloudCommerceProApiClient.CloudCommercePro.Customers.ResponseObjectOfAPICustomer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Customers\CloudCommerceProApiClient.CloudCommercePro.Customers.ResponseObjectOfAPICustomerList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Customers\CloudCommerceProApiClient.CloudCommercePro.Customers.ResponseObjectOfBoolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Customers\CloudCommerceProApiClient.CloudCommercePro.Customers.SearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Customers\CloudCommerceProApiClient.CloudCommercePro.Customers.TestCredentialsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.OrderReturns\CcpApiOrderReturnsService1.wsdl" />
+    <None Include="Service References\CloudCommercePro.OrderReturns\CcpApiOrderReturnsService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService.wsdl" />
-    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService.xsd">
+    <None Include="Service References\CloudCommercePro.OrderReturns\CloudCommerceProApiClient.CloudCommercePro.OrderReturns.GetOutstandingReturnsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.OrderReturns\CloudCommerceProApiClient.CloudCommercePro.OrderReturns.GetReturnsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.OrderReturns\CloudCommerceProApiClient.CloudCommercePro.OrderReturns.ResponseObjectOfListOfOrderReturn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService1.wsdl" />
+    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService1.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.createOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.DispatchOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getAllocatedOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getCompletedOrdersNoOfDaysResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getInvoiceSummaryForOrderIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getNotPickedOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getNotPrintedOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getOrderByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getOrderDetailsByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getOrderDetailsByReferenceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getOrdersForDispatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getPickedOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getPrintedOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getPriorityOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.GetShippingRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getUnallocatedOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getUnprocessedOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.markOrderAsPickedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfAPIDispatchOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfAPIInvoiceSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfAPIOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfApiOrderQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfBoolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfInt32.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfListOfAPIOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfListOfAPIShippingRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfOrderDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.SearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.setPickListPrintedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.setPickStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.SubmitOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.TestCredentialsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CloudCommercePro.Payments\CCPApiPaymentService.wsdl" />
     <None Include="Service References\CloudCommercePro.Payments\CCPApiPaymentService.xsd">
@@ -294,19 +423,7 @@
     <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.getActiveSalesChannelsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.getApiSalesChannelsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.getProductByBarcodeResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.getProductByIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.getProductsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.getProductUpdatesResponse.datasource">
+    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.ResponseObjectOfAPIExternalChannelSessionList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.ResponseObjectOfAPIProduct.datasource">
@@ -318,7 +435,13 @@
     <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.ResponseObjectOfBoolean.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.TestCredentialsResponse.datasource">
+    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.ResponseObjectOfListOfAPIExternalChannelSession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.ResponseObjectOfListOfAPISalesChannel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.SalesChannels\CloudCommerceProApiClient.CloudCommercePro.SalesChannels.ResponseObjectOfSKUSalesQueryResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CloudCommercePro.Transactions\CcpApiTransactionService.wsdl" />
@@ -446,9 +569,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\CloudCommercePro.Orders\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -461,9 +581,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CloudCommercePro.OrderReturns\CcpApiOrderReturnsService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\CloudCommercePro.OrderReturns\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -474,6 +591,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CloudCommercePro.OrderReturns\CcpApiOrderReturnsService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

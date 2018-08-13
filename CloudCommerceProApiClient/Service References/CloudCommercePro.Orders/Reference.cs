@@ -1560,6 +1560,9 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         private string ExternalProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GiftMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AdditionalBarCodesField;
         
         private int ProductIDField;
@@ -1667,6 +1670,19 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string GiftMessage {
+            get {
+                return this.GiftMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GiftMessageField, value) != true)) {
+                    this.GiftMessageField = value;
+                    this.RaisePropertyChanged("GiftMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
         public string AdditionalBarCodes {
             get {
                 return this.AdditionalBarCodesField;
@@ -1679,7 +1695,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
         public int ProductID {
             get {
                 return this.ProductIDField;
@@ -1692,7 +1708,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
         public string ProductName {
             get {
                 return this.ProductNameField;
@@ -1705,7 +1721,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
         public int VatRateID {
             get {
                 return this.VatRateIDField;
@@ -1718,7 +1734,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
         public int Quantity {
             get {
                 return this.QuantityField;
@@ -1731,7 +1747,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
         public decimal Price {
             get {
                 return this.PriceField;
@@ -1744,7 +1760,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
         public decimal Discount {
             get {
                 return this.DiscountField;
@@ -1757,7 +1773,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=13)]
         public decimal RowTotalGross {
             get {
                 return this.RowTotalGrossField;
@@ -1770,7 +1786,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=13)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=14)]
         public decimal RowTotalNet {
             get {
                 return this.RowTotalNetField;
@@ -1783,7 +1799,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=14)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=15)]
         public decimal RowTotalVAT {
             get {
                 return this.RowTotalVATField;
@@ -1796,7 +1812,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=15)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
         public decimal RowDiscountGross {
             get {
                 return this.RowDiscountGrossField;
@@ -1809,7 +1825,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=17)]
         public decimal RowDiscountNet {
             get {
                 return this.RowDiscountNetField;
@@ -1822,7 +1838,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=17)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=18)]
         public decimal RowDiscountVAT {
             get {
                 return this.RowDiscountVATField;
@@ -1835,7 +1851,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=18)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=19)]
         public bool UseNetPrice {
             get {
                 return this.UseNetPriceField;
@@ -1848,7 +1864,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=19)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=20)]
         public bool DiscountCalculatedInPrice {
             get {
                 return this.DiscountCalculatedInPriceField;
@@ -3194,8 +3210,6 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private bool CanSplitOrdersField;
-        
         private CloudCommerceProApiClient.CloudCommercePro.Orders.CustomerType TypeEnumField;
         
         private int IDField;
@@ -3270,19 +3284,6 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public bool CanSplitOrders {
-            get {
-                return this.CanSplitOrdersField;
-            }
-            set {
-                if ((this.CanSplitOrdersField.Equals(value) != true)) {
-                    this.CanSplitOrdersField = value;
-                    this.RaisePropertyChanged("CanSplitOrders");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public CloudCommerceProApiClient.CloudCommercePro.Orders.CustomerType TypeEnum {
             get {
                 return this.TypeEnumField;
@@ -3295,7 +3296,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
         public int ID {
             get {
                 return this.IDField;
@@ -3308,7 +3309,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public string CompanyName {
             get {
                 return this.CompanyNameField;
@@ -3321,7 +3322,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string TradingName {
             get {
                 return this.TradingNameField;
@@ -3334,7 +3335,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
         public string VATNumber {
             get {
                 return this.VATNumberField;
@@ -3347,7 +3348,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
         public int SageVATCode {
             get {
                 return this.SageVATCodeField;
@@ -3360,7 +3361,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
         public System.Nullable<decimal> CreditLimit {
             get {
                 return this.CreditLimitField;
@@ -3373,7 +3374,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
         public string Email {
             get {
                 return this.EmailField;
@@ -3386,7 +3387,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
         public System.Nullable<int> AgentID {
             get {
                 return this.AgentIDField;
@@ -3399,7 +3400,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
         public string SageAccountID {
             get {
                 return this.SageAccountIDField;
@@ -3412,7 +3413,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
         public System.Nullable<int> SageStatus {
             get {
                 return this.SageStatusField;
@@ -3425,7 +3426,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
         public System.Nullable<int> SalesChannelID {
             get {
                 return this.SalesChannelIDField;
@@ -3438,7 +3439,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=13)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
         public int PaymentTermID {
             get {
                 return this.PaymentTermIDField;
@@ -3451,7 +3452,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=14)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=13)]
         public int BarCodeGenerator {
             get {
                 return this.BarCodeGeneratorField;
@@ -3464,7 +3465,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=15)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=14)]
         public int LoginID {
             get {
                 return this.LoginIDField;
@@ -3477,7 +3478,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=15)]
         public int BrandID {
             get {
                 return this.BrandIDField;
@@ -3490,7 +3491,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=17)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
         public int ParentID {
             get {
                 return this.ParentIDField;
@@ -3503,7 +3504,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=17)]
         public string SystemStatus {
             get {
                 return this.SystemStatusField;
@@ -3516,7 +3517,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=19)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=18)]
         public int Type {
             get {
                 return this.TypeField;
@@ -3529,7 +3530,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=20)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=19)]
         public int EcomID {
             get {
                 return this.EcomIDField;
@@ -3542,7 +3543,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=21)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=20)]
         public int SpecialDeliveryInstructions {
             get {
                 return this.SpecialDeliveryInstructionsField;
@@ -3555,7 +3556,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
         public string SpecDelInstrNote {
             get {
                 return this.SpecDelInstrNoteField;
@@ -3568,7 +3569,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=23)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=22)]
         public int OnWatchList {
             get {
                 return this.OnWatchListField;
@@ -3581,7 +3582,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
         public string WatchListReason {
             get {
                 return this.WatchListReasonField;
@@ -3594,7 +3595,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=25)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=24)]
         public int StatusID {
             get {
                 return this.StatusIDField;
@@ -3607,7 +3608,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=26)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=25)]
         public CloudCommerceProApiClient.CloudCommercePro.Orders.IStatusID StatusIDEnum {
             get {
                 return this.StatusIDEnumField;
@@ -3620,7 +3621,7 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=27)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=26)]
         public string QuickBooksId {
             get {
                 return this.QuickBooksIdField;
@@ -10180,6 +10181,8 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         
         private bool isDropdownField;
         
+        private bool IsFilterField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -10342,6 +10345,19 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
                 if ((this.isDropdownField.Equals(value) != true)) {
                     this.isDropdownField = value;
                     this.RaisePropertyChanged("isDropdown");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
+        public bool IsFilter {
+            get {
+                return this.IsFilterField;
+            }
+            set {
+                if ((this.IsFilterField.Equals(value) != true)) {
+                    this.IsFilterField = value;
+                    this.RaisePropertyChanged("IsFilter");
                 }
             }
         }
@@ -10754,6 +10770,9 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         eBayMotors = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AmazonPrime = 17,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12548,6 +12567,9 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SecuredMail = 31,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Whistl = 32,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

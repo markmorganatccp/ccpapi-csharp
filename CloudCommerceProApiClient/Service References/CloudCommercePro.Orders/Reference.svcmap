@@ -19,12 +19,12 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://ccpapi.local/CCPApiOrderService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://devwcfccpservicesbase.cloudcommercepro.com/CCPApiOrderService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CCPApiOrderService.xsd" MetadataType="Schema" ID="59836bf9-3e0a-41ec-b5fe-090ea81dffd1" SourceId="1" SourceUrl="http://ccpapi.local/CCPApiOrderService.svc?xsd=xsd0" />
-    <MetadataFile FileName="CCPApiOrderService.disco" MetadataType="Disco" ID="e41736a5-addb-4276-91d2-03bf7f5b31f1" SourceId="1" SourceUrl="http://ccpapi.local/CCPApiOrderService.svc?disco" />
-    <MetadataFile FileName="CCPApiOrderService.wsdl" MetadataType="Wsdl" ID="065d1d24-8ef5-4ea5-982e-eb4a47b4ae4b" SourceId="1" SourceUrl="http://ccpapi.local/CCPApiOrderService.svc?wsdl" />
+    <MetadataFile FileName="CCPApiOrderService1.wsdl" MetadataType="Wsdl" ID="cbd06bb7-ffe3-414f-8f81-5bc873384d1f" SourceId="1" SourceUrl="http://devwcfccpservicesbase.cloudcommercepro.com/CCPApiOrderService.svc?wsdl" />
+    <MetadataFile FileName="CCPApiOrderService1.disco" MetadataType="Disco" ID="3490ac87-422a-486e-8ca8-683b215f3cb1" SourceId="1" SourceUrl="http://devwcfccpservicesbase.cloudcommercepro.com/CCPApiOrderService.svc?disco" />
+    <MetadataFile FileName="CCPApiOrderService1.xsd" MetadataType="Schema" ID="1cfe3bac-b51a-48a9-ba18-3c9a9ca17f04" SourceId="1" SourceUrl="http://devwcfccpservicesbase.cloudcommercepro.com/CCPApiOrderService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

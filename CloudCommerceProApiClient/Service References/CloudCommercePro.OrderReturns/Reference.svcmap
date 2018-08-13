@@ -19,12 +19,12 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://ccpapi.local/CCPApiOrderReturnsService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiOrderReturnsService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CcpApiOrderReturnsService.wsdl" MetadataType="Wsdl" ID="c387e62a-3e91-4b5f-a504-ee8c655b65f5" SourceId="1" SourceUrl="http://ccpapi.local/CcpApiOrderReturnsService.svc?wsdl" />
-    <MetadataFile FileName="CcpApiOrderReturnsService.xsd" MetadataType="Schema" ID="8ec736cf-126a-47da-b4d2-87b0b984e862" SourceId="1" SourceUrl="http://ccpapi.local/CcpApiOrderReturnsService.svc?xsd=xsd0" />
-    <MetadataFile FileName="CcpApiOrderReturnsService.disco" MetadataType="Disco" ID="1f380a27-09dc-4706-b00c-4854072ea2e7" SourceId="1" SourceUrl="http://ccpapi.local/CcpApiOrderReturnsService.svc?disco" />
+    <MetadataFile FileName="CcpApiOrderReturnsService1.xsd" MetadataType="Schema" ID="26398e34-c3db-4139-bdef-ac65ff87b333" SourceId="1" SourceUrl="https://devwcfccpservicesbase.cloudcommercepro.com/CcpApiOrderReturnsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CcpApiOrderReturnsService1.wsdl" MetadataType="Wsdl" ID="f2924364-b7b9-426e-87db-dc53c22654fa" SourceId="1" SourceUrl="https://devwcfccpservicesbase.cloudcommercepro.com/CcpApiOrderReturnsService.svc?wsdl" />
+    <MetadataFile FileName="CcpApiOrderReturnsService1.disco" MetadataType="Disco" ID="e76c585f-7184-425e-a37c-e2939aece95c" SourceId="1" SourceUrl="https://devwcfccpservicesbase.cloudcommercepro.com/CcpApiOrderReturnsService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

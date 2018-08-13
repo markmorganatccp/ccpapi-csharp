@@ -237,6 +237,7 @@
       <xs:element minOccurs="0" maxOccurs="1" name="BarCode" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="1" name="SKU" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="1" name="ExternalProductId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GiftMessage" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="1" name="AdditionalBarCodes" type="xs:string" />
       <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="xs:int" />
       <xs:element minOccurs="0" maxOccurs="1" name="ProductName" type="xs:string" />
@@ -649,6 +650,7 @@
       <xs:element minOccurs="0" maxOccurs="1" name="ProductSKU" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="1" name="RangeSKU" type="xs:string" />
       <xs:element minOccurs="1" maxOccurs="1" name="isDropdown" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsFilter" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ProductRange">
@@ -699,7 +701,6 @@
   </xs:simpleType>
   <xs:complexType name="Customer">
     <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="CanSplitOrders" type="xs:boolean" />
       <xs:element minOccurs="1" maxOccurs="1" name="TypeEnum" type="tns:CustomerType" />
       <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:int" />
       <xs:element minOccurs="0" maxOccurs="1" name="CompanyName" type="xs:string" />
@@ -860,6 +861,7 @@
       <xs:enumeration value="TescoDirect" />
       <xs:enumeration value="Magento2" />
       <xs:enumeration value="eBayMotors" />
+      <xs:enumeration value="AmazonPrime" />
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="SalesChannel">
@@ -1202,6 +1204,7 @@
       <xs:enumeration value="TrakPak" />
       <xs:enumeration value="APCNewHorizon" />
       <xs:enumeration value="SecuredMail" />
+      <xs:enumeration value="Whistl" />
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="Country">
