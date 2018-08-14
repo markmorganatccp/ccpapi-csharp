@@ -27,7 +27,7 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://devwcfccpservicesbase.cloudcommercepro.com/CCPApiOrderService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://devwcfccpservicesbase.cloudcommercepro.com/CCPApiOrderService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICCPApiOrderService_getInvoiceSummaryForOrderID_InputMessage">
@@ -41,6 +41,12 @@
   </wsdl:message>
   <wsdl:message name="ICCPApiOrderService_Search_OutputMessage">
     <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_GetDispatchedOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDispatchedOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICCPApiOrderService_GetDispatchedOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDispatchedOrdersResponse" />
   </wsdl:message>
   <wsdl:message name="ICCPApiOrderService_createOrder_InputMessage">
     <wsdl:part name="parameters" element="tns:createOrder" />
@@ -195,6 +201,15 @@
             &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
       <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/Search" message="tns:ICCPApiOrderService_Search_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/SearchResponse" message="tns:ICCPApiOrderService_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDispatchedOrders">
+      <wsdl:documentation>&lt;summary&gt;
+            Get Orders Dispatch between a given date range and optionally filter by sales channel
+            &lt;/summary&gt;
+            &lt;param name="request"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://tempuri.org/ICCPApiOrderService/GetDispatchedOrders" message="tns:ICCPApiOrderService_GetDispatchedOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICCPApiOrderService/GetDispatchedOrdersResponse" message="tns:ICCPApiOrderService_GetDispatchedOrders_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="createOrder">
       <wsdl:documentation>&lt;summary&gt;
@@ -415,6 +430,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetDispatchedOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/GetDispatchedOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="createOrder">
       <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/createOrder" style="document" />
       <wsdl:input>
@@ -628,6 +652,15 @@
     </wsdl:operation>
     <wsdl:operation name="Search">
       <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDispatchedOrders">
+      <soap:operation soapAction="http://tempuri.org/ICCPApiOrderService/GetDispatchedOrders" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -840,6 +840,12 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Refunded = 23,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dispatched = 24,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PartaillyDispatched = 25,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1903,20 +1909,25 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RequestObjectOfAPIOrderCreateOrderRequest", Namespace="http://tempuri.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseObjectOfDispatchedOrdersList", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
-    public partial class RequestObjectOfAPIOrderCreateOrderRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ResponseObjectOfDispatchedOrdersList : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private int BrandIDField;
+        private bool SuccessField;
+        
+        private int ErrorLevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SecurityHashField;
+        private string ErrorMessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderCreateOrderRequest ContentField;
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.DispatchedOrdersList ContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] ErrorsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1929,33 +1940,46 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int BrandID {
+        public bool Success {
             get {
-                return this.BrandIDField;
+                return this.SuccessField;
             }
             set {
-                if ((this.BrandIDField.Equals(value) != true)) {
-                    this.BrandIDField = value;
-                    this.RaisePropertyChanged("BrandID");
+                if ((this.SuccessField.Equals(value) != true)) {
+                    this.SuccessField = value;
+                    this.RaisePropertyChanged("Success");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string SecurityHash {
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int ErrorLevel {
             get {
-                return this.SecurityHashField;
+                return this.ErrorLevelField;
             }
             set {
-                if ((object.ReferenceEquals(this.SecurityHashField, value) != true)) {
-                    this.SecurityHashField = value;
-                    this.RaisePropertyChanged("SecurityHash");
+                if ((this.ErrorLevelField.Equals(value) != true)) {
+                    this.ErrorLevelField = value;
+                    this.RaisePropertyChanged("ErrorLevel");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderCreateOrderRequest Content {
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.DispatchedOrdersList Content {
             get {
                 return this.ContentField;
             }
@@ -1963,6 +1987,19 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
                 if ((object.ReferenceEquals(this.ContentField, value) != true)) {
                     this.ContentField = value;
                     this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] Errors {
+            get {
+                return this.ErrorsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
+                    this.ErrorsField = value;
+                    this.RaisePropertyChanged("Errors");
                 }
             }
         }
@@ -1979,70 +2016,21 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="APIOrderCreateOrderRequest", Namespace="http://tempuri.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DispatchedOrdersList", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
-    public partial class APIOrderCreateOrderRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class DispatchedOrdersList : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private int nCustomerIDField;
+        private int StartField;
         
-        private int intBrandIDField;
+        private int EndField;
         
-        private int nSeasonIDField;
-        
-        private int nLoginIDField;
-        
-        private int nOrderIDField;
-        
-        private int nSendEmailField;
+        private int totalRecordsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string strReferenceField;
-        
-        private int nPaymentTermIDField;
-        
-        private System.DateTime strDeliveryDateField;
-        
-        private System.DateTime ShipByDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string strPostageOverrideField;
-        
-        private decimal NetCarriageField;
-        
-        private decimal VATCarriageField;
-        
-        private decimal decCarriageTotalField;
-        
-        private int intAddByLoginIDField;
-        
-        private int intPaymentStatusField;
-        
-        private int intDaysOfCreditField;
-        
-        private bool doTriggersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingServiceField;
-        
-        private int ShippingRuleIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ExternalReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NoteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderBillingAddress BillingAddressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderShippingAddress ShippingAddressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderItem[] orderItemsField;
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail[] ordersField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2055,949 +2043,53 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int nCustomerID {
+        public int Start {
             get {
-                return this.nCustomerIDField;
+                return this.StartField;
             }
             set {
-                if ((this.nCustomerIDField.Equals(value) != true)) {
-                    this.nCustomerIDField = value;
-                    this.RaisePropertyChanged("nCustomerID");
+                if ((this.StartField.Equals(value) != true)) {
+                    this.StartField = value;
+                    this.RaisePropertyChanged("Start");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
-        public int intBrandID {
+        public int End {
             get {
-                return this.intBrandIDField;
+                return this.EndField;
             }
             set {
-                if ((this.intBrandIDField.Equals(value) != true)) {
-                    this.intBrandIDField = value;
-                    this.RaisePropertyChanged("intBrandID");
+                if ((this.EndField.Equals(value) != true)) {
+                    this.EndField = value;
+                    this.RaisePropertyChanged("End");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
-        public int nSeasonID {
+        public int totalRecords {
             get {
-                return this.nSeasonIDField;
+                return this.totalRecordsField;
             }
             set {
-                if ((this.nSeasonIDField.Equals(value) != true)) {
-                    this.nSeasonIDField = value;
-                    this.RaisePropertyChanged("nSeasonID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public int nLoginID {
-            get {
-                return this.nLoginIDField;
-            }
-            set {
-                if ((this.nLoginIDField.Equals(value) != true)) {
-                    this.nLoginIDField = value;
-                    this.RaisePropertyChanged("nLoginID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
-        public int nOrderID {
-            get {
-                return this.nOrderIDField;
-            }
-            set {
-                if ((this.nOrderIDField.Equals(value) != true)) {
-                    this.nOrderIDField = value;
-                    this.RaisePropertyChanged("nOrderID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
-        public int nSendEmail {
-            get {
-                return this.nSendEmailField;
-            }
-            set {
-                if ((this.nSendEmailField.Equals(value) != true)) {
-                    this.nSendEmailField = value;
-                    this.RaisePropertyChanged("nSendEmail");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string strReference {
-            get {
-                return this.strReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.strReferenceField, value) != true)) {
-                    this.strReferenceField = value;
-                    this.RaisePropertyChanged("strReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
-        public int nPaymentTermID {
-            get {
-                return this.nPaymentTermIDField;
-            }
-            set {
-                if ((this.nPaymentTermIDField.Equals(value) != true)) {
-                    this.nPaymentTermIDField = value;
-                    this.RaisePropertyChanged("nPaymentTermID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
-        public System.DateTime strDeliveryDate {
-            get {
-                return this.strDeliveryDateField;
-            }
-            set {
-                if ((this.strDeliveryDateField.Equals(value) != true)) {
-                    this.strDeliveryDateField = value;
-                    this.RaisePropertyChanged("strDeliveryDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
-        public System.DateTime ShipByDate {
-            get {
-                return this.ShipByDateField;
-            }
-            set {
-                if ((this.ShipByDateField.Equals(value) != true)) {
-                    this.ShipByDateField = value;
-                    this.RaisePropertyChanged("ShipByDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
-        public string strPostageOverride {
-            get {
-                return this.strPostageOverrideField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.strPostageOverrideField, value) != true)) {
-                    this.strPostageOverrideField = value;
-                    this.RaisePropertyChanged("strPostageOverride");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
-        public decimal NetCarriage {
-            get {
-                return this.NetCarriageField;
-            }
-            set {
-                if ((this.NetCarriageField.Equals(value) != true)) {
-                    this.NetCarriageField = value;
-                    this.RaisePropertyChanged("NetCarriage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
-        public decimal VATCarriage {
-            get {
-                return this.VATCarriageField;
-            }
-            set {
-                if ((this.VATCarriageField.Equals(value) != true)) {
-                    this.VATCarriageField = value;
-                    this.RaisePropertyChanged("VATCarriage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=13)]
-        public decimal decCarriageTotal {
-            get {
-                return this.decCarriageTotalField;
-            }
-            set {
-                if ((this.decCarriageTotalField.Equals(value) != true)) {
-                    this.decCarriageTotalField = value;
-                    this.RaisePropertyChanged("decCarriageTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=14)]
-        public int intAddByLoginID {
-            get {
-                return this.intAddByLoginIDField;
-            }
-            set {
-                if ((this.intAddByLoginIDField.Equals(value) != true)) {
-                    this.intAddByLoginIDField = value;
-                    this.RaisePropertyChanged("intAddByLoginID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=15)]
-        public int intPaymentStatus {
-            get {
-                return this.intPaymentStatusField;
-            }
-            set {
-                if ((this.intPaymentStatusField.Equals(value) != true)) {
-                    this.intPaymentStatusField = value;
-                    this.RaisePropertyChanged("intPaymentStatus");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
-        public int intDaysOfCredit {
-            get {
-                return this.intDaysOfCreditField;
-            }
-            set {
-                if ((this.intDaysOfCreditField.Equals(value) != true)) {
-                    this.intDaysOfCreditField = value;
-                    this.RaisePropertyChanged("intDaysOfCredit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=17)]
-        public bool doTriggers {
-            get {
-                return this.doTriggersField;
-            }
-            set {
-                if ((this.doTriggersField.Equals(value) != true)) {
-                    this.doTriggersField = value;
-                    this.RaisePropertyChanged("doTriggers");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
-        public string ShippingService {
-            get {
-                return this.ShippingServiceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingServiceField, value) != true)) {
-                    this.ShippingServiceField = value;
-                    this.RaisePropertyChanged("ShippingService");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=19)]
-        public int ShippingRuleID {
-            get {
-                return this.ShippingRuleIDField;
-            }
-            set {
-                if ((this.ShippingRuleIDField.Equals(value) != true)) {
-                    this.ShippingRuleIDField = value;
-                    this.RaisePropertyChanged("ShippingRuleID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=20)]
-        public string ExternalReference {
-            get {
-                return this.ExternalReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ExternalReferenceField, value) != true)) {
-                    this.ExternalReferenceField = value;
-                    this.RaisePropertyChanged("ExternalReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
-        public string Note {
-            get {
-                return this.NoteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NoteField, value) != true)) {
-                    this.NoteField = value;
-                    this.RaisePropertyChanged("Note");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
-        public CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderBillingAddress BillingAddress {
-            get {
-                return this.BillingAddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingAddressField, value) != true)) {
-                    this.BillingAddressField = value;
-                    this.RaisePropertyChanged("BillingAddress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
-        public CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderShippingAddress ShippingAddress {
-            get {
-                return this.ShippingAddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingAddressField, value) != true)) {
-                    this.ShippingAddressField = value;
-                    this.RaisePropertyChanged("ShippingAddress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
-        public CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderItem[] orderItems {
-            get {
-                return this.orderItemsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.orderItemsField, value) != true)) {
-                    this.orderItemsField = value;
-                    this.RaisePropertyChanged("orderItems");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="APIOrderBillingAddress", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class APIOrderBillingAddress : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingAddressCompanyNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingContactFirstNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingContactLastNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingAddress1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingAddress2Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingTownField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingCountyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingCountryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingPostCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingTelephoneField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BillingMobileField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string BillingAddressCompanyName {
-            get {
-                return this.BillingAddressCompanyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingAddressCompanyNameField, value) != true)) {
-                    this.BillingAddressCompanyNameField = value;
-                    this.RaisePropertyChanged("BillingAddressCompanyName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string BillingContactFirstName {
-            get {
-                return this.BillingContactFirstNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingContactFirstNameField, value) != true)) {
-                    this.BillingContactFirstNameField = value;
-                    this.RaisePropertyChanged("BillingContactFirstName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string BillingContactLastName {
-            get {
-                return this.BillingContactLastNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingContactLastNameField, value) != true)) {
-                    this.BillingContactLastNameField = value;
-                    this.RaisePropertyChanged("BillingContactLastName");
+                if ((this.totalRecordsField.Equals(value) != true)) {
+                    this.totalRecordsField = value;
+                    this.RaisePropertyChanged("totalRecords");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string BillingAddress1 {
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail[] orders {
             get {
-                return this.BillingAddress1Field;
+                return this.ordersField;
             }
             set {
-                if ((object.ReferenceEquals(this.BillingAddress1Field, value) != true)) {
-                    this.BillingAddress1Field = value;
-                    this.RaisePropertyChanged("BillingAddress1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string BillingAddress2 {
-            get {
-                return this.BillingAddress2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingAddress2Field, value) != true)) {
-                    this.BillingAddress2Field = value;
-                    this.RaisePropertyChanged("BillingAddress2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string BillingTown {
-            get {
-                return this.BillingTownField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingTownField, value) != true)) {
-                    this.BillingTownField = value;
-                    this.RaisePropertyChanged("BillingTown");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string BillingCounty {
-            get {
-                return this.BillingCountyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingCountyField, value) != true)) {
-                    this.BillingCountyField = value;
-                    this.RaisePropertyChanged("BillingCounty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public string BillingCountry {
-            get {
-                return this.BillingCountryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingCountryField, value) != true)) {
-                    this.BillingCountryField = value;
-                    this.RaisePropertyChanged("BillingCountry");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
-        public string BillingPostCode {
-            get {
-                return this.BillingPostCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingPostCodeField, value) != true)) {
-                    this.BillingPostCodeField = value;
-                    this.RaisePropertyChanged("BillingPostCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
-        public string BillingTelephone {
-            get {
-                return this.BillingTelephoneField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingTelephoneField, value) != true)) {
-                    this.BillingTelephoneField = value;
-                    this.RaisePropertyChanged("BillingTelephone");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
-        public string BillingMobile {
-            get {
-                return this.BillingMobileField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BillingMobileField, value) != true)) {
-                    this.BillingMobileField = value;
-                    this.RaisePropertyChanged("BillingMobile");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="APIOrderShippingAddress", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class APIOrderShippingAddress : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingAddressCompanyNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingContactFirstNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingContactLastNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingAddress1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingAddress2Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingTownField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingCountyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingCountryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingPostCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingTelephoneField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShippingMobileField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string ShippingAddressCompanyName {
-            get {
-                return this.ShippingAddressCompanyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingAddressCompanyNameField, value) != true)) {
-                    this.ShippingAddressCompanyNameField = value;
-                    this.RaisePropertyChanged("ShippingAddressCompanyName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string ShippingContactFirstName {
-            get {
-                return this.ShippingContactFirstNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingContactFirstNameField, value) != true)) {
-                    this.ShippingContactFirstNameField = value;
-                    this.RaisePropertyChanged("ShippingContactFirstName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string ShippingContactLastName {
-            get {
-                return this.ShippingContactLastNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingContactLastNameField, value) != true)) {
-                    this.ShippingContactLastNameField = value;
-                    this.RaisePropertyChanged("ShippingContactLastName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string ShippingAddress1 {
-            get {
-                return this.ShippingAddress1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingAddress1Field, value) != true)) {
-                    this.ShippingAddress1Field = value;
-                    this.RaisePropertyChanged("ShippingAddress1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string ShippingAddress2 {
-            get {
-                return this.ShippingAddress2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingAddress2Field, value) != true)) {
-                    this.ShippingAddress2Field = value;
-                    this.RaisePropertyChanged("ShippingAddress2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string ShippingTown {
-            get {
-                return this.ShippingTownField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingTownField, value) != true)) {
-                    this.ShippingTownField = value;
-                    this.RaisePropertyChanged("ShippingTown");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string ShippingCounty {
-            get {
-                return this.ShippingCountyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingCountyField, value) != true)) {
-                    this.ShippingCountyField = value;
-                    this.RaisePropertyChanged("ShippingCounty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public string ShippingCountry {
-            get {
-                return this.ShippingCountryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingCountryField, value) != true)) {
-                    this.ShippingCountryField = value;
-                    this.RaisePropertyChanged("ShippingCountry");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
-        public string ShippingPostCode {
-            get {
-                return this.ShippingPostCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingPostCodeField, value) != true)) {
-                    this.ShippingPostCodeField = value;
-                    this.RaisePropertyChanged("ShippingPostCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
-        public string ShippingTelephone {
-            get {
-                return this.ShippingTelephoneField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingTelephoneField, value) != true)) {
-                    this.ShippingTelephoneField = value;
-                    this.RaisePropertyChanged("ShippingTelephone");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
-        public string ShippingMobile {
-            get {
-                return this.ShippingMobileField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingMobileField, value) != true)) {
-                    this.ShippingMobileField = value;
-                    this.RaisePropertyChanged("ShippingMobile");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseObjectOfInt32", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class ResponseObjectOfInt32 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private bool SuccessField;
-        
-        private int ErrorLevelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ErrorMessageField;
-        
-        private int ContentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] ErrorsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public bool Success {
-            get {
-                return this.SuccessField;
-            }
-            set {
-                if ((this.SuccessField.Equals(value) != true)) {
-                    this.SuccessField = value;
-                    this.RaisePropertyChanged("Success");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
-        public int ErrorLevel {
-            get {
-                return this.ErrorLevelField;
-            }
-            set {
-                if ((this.ErrorLevelField.Equals(value) != true)) {
-                    this.ErrorLevelField = value;
-                    this.RaisePropertyChanged("ErrorLevel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string ErrorMessage {
-            get {
-                return this.ErrorMessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
-                    this.ErrorMessageField = value;
-                    this.RaisePropertyChanged("ErrorMessage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public int Content {
-            get {
-                return this.ContentField;
-            }
-            set {
-                if ((this.ContentField.Equals(value) != true)) {
-                    this.ContentField = value;
-                    this.RaisePropertyChanged("Content");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] Errors {
-            get {
-                return this.ErrorsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
-                    this.ErrorsField = value;
-                    this.RaisePropertyChanged("Errors");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseObjectOfOrderDetail", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class ResponseObjectOfOrderDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private bool SuccessField;
-        
-        private int ErrorLevelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ErrorMessageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail ContentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] ErrorsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public bool Success {
-            get {
-                return this.SuccessField;
-            }
-            set {
-                if ((this.SuccessField.Equals(value) != true)) {
-                    this.SuccessField = value;
-                    this.RaisePropertyChanged("Success");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
-        public int ErrorLevel {
-            get {
-                return this.ErrorLevelField;
-            }
-            set {
-                if ((this.ErrorLevelField.Equals(value) != true)) {
-                    this.ErrorLevelField = value;
-                    this.RaisePropertyChanged("ErrorLevel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string ErrorMessage {
-            get {
-                return this.ErrorMessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
-                    this.ErrorMessageField = value;
-                    this.RaisePropertyChanged("ErrorMessage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail Content {
-            get {
-                return this.ContentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
-                    this.ContentField = value;
-                    this.RaisePropertyChanged("Content");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] Errors {
-            get {
-                return this.ErrorsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
-                    this.ErrorsField = value;
-                    this.RaisePropertyChanged("Errors");
+                if ((object.ReferenceEquals(this.ordersField, value) != true)) {
+                    this.ordersField = value;
+                    this.RaisePropertyChanged("orders");
                 }
             }
         }
@@ -5188,6 +4280,416 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
                 if ((this.ExtraCostsVatField.Equals(value) != true)) {
                     this.ExtraCostsVatField = value;
                     this.RaisePropertyChanged("ExtraCostsVat");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="APIOrderShippingAddress", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class APIOrderShippingAddress : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingAddressCompanyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingContactFirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingContactLastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingAddress1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingAddress2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingTownField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingCountyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingCountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingPostCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingTelephoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingMobileField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ShippingAddressCompanyName {
+            get {
+                return this.ShippingAddressCompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingAddressCompanyNameField, value) != true)) {
+                    this.ShippingAddressCompanyNameField = value;
+                    this.RaisePropertyChanged("ShippingAddressCompanyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ShippingContactFirstName {
+            get {
+                return this.ShippingContactFirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingContactFirstNameField, value) != true)) {
+                    this.ShippingContactFirstNameField = value;
+                    this.RaisePropertyChanged("ShippingContactFirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ShippingContactLastName {
+            get {
+                return this.ShippingContactLastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingContactLastNameField, value) != true)) {
+                    this.ShippingContactLastNameField = value;
+                    this.RaisePropertyChanged("ShippingContactLastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string ShippingAddress1 {
+            get {
+                return this.ShippingAddress1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingAddress1Field, value) != true)) {
+                    this.ShippingAddress1Field = value;
+                    this.RaisePropertyChanged("ShippingAddress1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string ShippingAddress2 {
+            get {
+                return this.ShippingAddress2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingAddress2Field, value) != true)) {
+                    this.ShippingAddress2Field = value;
+                    this.RaisePropertyChanged("ShippingAddress2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string ShippingTown {
+            get {
+                return this.ShippingTownField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingTownField, value) != true)) {
+                    this.ShippingTownField = value;
+                    this.RaisePropertyChanged("ShippingTown");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string ShippingCounty {
+            get {
+                return this.ShippingCountyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingCountyField, value) != true)) {
+                    this.ShippingCountyField = value;
+                    this.RaisePropertyChanged("ShippingCounty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string ShippingCountry {
+            get {
+                return this.ShippingCountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingCountryField, value) != true)) {
+                    this.ShippingCountryField = value;
+                    this.RaisePropertyChanged("ShippingCountry");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public string ShippingPostCode {
+            get {
+                return this.ShippingPostCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingPostCodeField, value) != true)) {
+                    this.ShippingPostCodeField = value;
+                    this.RaisePropertyChanged("ShippingPostCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public string ShippingTelephone {
+            get {
+                return this.ShippingTelephoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingTelephoneField, value) != true)) {
+                    this.ShippingTelephoneField = value;
+                    this.RaisePropertyChanged("ShippingTelephone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public string ShippingMobile {
+            get {
+                return this.ShippingMobileField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingMobileField, value) != true)) {
+                    this.ShippingMobileField = value;
+                    this.RaisePropertyChanged("ShippingMobile");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="APIOrderBillingAddress", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class APIOrderBillingAddress : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingAddressCompanyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingContactFirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingContactLastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingAddress1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingAddress2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingTownField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingCountyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingCountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingPostCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingTelephoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BillingMobileField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string BillingAddressCompanyName {
+            get {
+                return this.BillingAddressCompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingAddressCompanyNameField, value) != true)) {
+                    this.BillingAddressCompanyNameField = value;
+                    this.RaisePropertyChanged("BillingAddressCompanyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string BillingContactFirstName {
+            get {
+                return this.BillingContactFirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingContactFirstNameField, value) != true)) {
+                    this.BillingContactFirstNameField = value;
+                    this.RaisePropertyChanged("BillingContactFirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string BillingContactLastName {
+            get {
+                return this.BillingContactLastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingContactLastNameField, value) != true)) {
+                    this.BillingContactLastNameField = value;
+                    this.RaisePropertyChanged("BillingContactLastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string BillingAddress1 {
+            get {
+                return this.BillingAddress1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingAddress1Field, value) != true)) {
+                    this.BillingAddress1Field = value;
+                    this.RaisePropertyChanged("BillingAddress1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string BillingAddress2 {
+            get {
+                return this.BillingAddress2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingAddress2Field, value) != true)) {
+                    this.BillingAddress2Field = value;
+                    this.RaisePropertyChanged("BillingAddress2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string BillingTown {
+            get {
+                return this.BillingTownField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingTownField, value) != true)) {
+                    this.BillingTownField = value;
+                    this.RaisePropertyChanged("BillingTown");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string BillingCounty {
+            get {
+                return this.BillingCountyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingCountyField, value) != true)) {
+                    this.BillingCountyField = value;
+                    this.RaisePropertyChanged("BillingCounty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string BillingCountry {
+            get {
+                return this.BillingCountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingCountryField, value) != true)) {
+                    this.BillingCountryField = value;
+                    this.RaisePropertyChanged("BillingCountry");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public string BillingPostCode {
+            get {
+                return this.BillingPostCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingPostCodeField, value) != true)) {
+                    this.BillingPostCodeField = value;
+                    this.RaisePropertyChanged("BillingPostCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public string BillingTelephone {
+            get {
+                return this.BillingTelephoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingTelephoneField, value) != true)) {
+                    this.BillingTelephoneField = value;
+                    this.RaisePropertyChanged("BillingTelephone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public string BillingMobile {
+            get {
+                return this.BillingMobileField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingMobileField, value) != true)) {
+                    this.BillingMobileField = value;
+                    this.RaisePropertyChanged("BillingMobile");
                 }
             }
         }
@@ -8209,12 +7711,9 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.OrderPickStatus))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderItem[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderItem))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfAPIOrderCreateOrderRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderCreateOrderRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderBillingAddress))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderShippingAddress))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfInt32))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfOrderDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfDispatchedOrdersList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.DispatchedOrdersList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ArrayOfCcpCustomerOrderItem))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ccpCustomerOrderItem))]
@@ -8258,6 +7757,8 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.VATEvaluationType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.CourierServicesRules))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APICommunicationMode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderShippingAddress))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderBillingAddress))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.CustomerOrderDispatch[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.CustomerOrderDispatch))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.DispatchType))]
@@ -8265,6 +7766,10 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.CustomerOrderShipment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ShippingCourierType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.Country))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfAPIOrderCreateOrderRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderCreateOrderRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfInt32))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfOrderDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfAPIGetOrdersRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIGetOrdersRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfListOfAPIOrder))]
@@ -9169,12 +8674,9 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.OrderPickStatus))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderItem[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderItem))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfAPIOrderCreateOrderRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderCreateOrderRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderBillingAddress))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderShippingAddress))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfInt32))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfOrderDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfDispatchedOrdersList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.DispatchedOrdersList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ArrayOfCcpCustomerOrderItem))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ccpCustomerOrderItem))]
@@ -9218,6 +8720,8 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.VATEvaluationType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.CourierServicesRules))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APICommunicationMode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderShippingAddress))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderBillingAddress))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.CustomerOrderDispatch[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.CustomerOrderDispatch))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.DispatchType))]
@@ -9225,6 +8729,10 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.CustomerOrderShipment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ShippingCourierType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.Country))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfAPIOrderCreateOrderRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderCreateOrderRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfInt32))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfOrderDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfAPIGetOrdersRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.APIGetOrdersRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfListOfAPIOrder))]
@@ -12574,6 +12082,707 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RequestObjectOfAPIOrderCreateOrderRequest", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class RequestObjectOfAPIOrderCreateOrderRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int BrandIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SecurityHashField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderCreateOrderRequest ContentField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int BrandID {
+            get {
+                return this.BrandIDField;
+            }
+            set {
+                if ((this.BrandIDField.Equals(value) != true)) {
+                    this.BrandIDField = value;
+                    this.RaisePropertyChanged("BrandID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string SecurityHash {
+            get {
+                return this.SecurityHashField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SecurityHashField, value) != true)) {
+                    this.SecurityHashField = value;
+                    this.RaisePropertyChanged("SecurityHash");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderCreateOrderRequest Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="APIOrderCreateOrderRequest", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class APIOrderCreateOrderRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int nCustomerIDField;
+        
+        private int intBrandIDField;
+        
+        private int nSeasonIDField;
+        
+        private int nLoginIDField;
+        
+        private int nOrderIDField;
+        
+        private int nSendEmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string strReferenceField;
+        
+        private int nPaymentTermIDField;
+        
+        private System.DateTime strDeliveryDateField;
+        
+        private System.DateTime ShipByDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string strPostageOverrideField;
+        
+        private decimal NetCarriageField;
+        
+        private decimal VATCarriageField;
+        
+        private decimal decCarriageTotalField;
+        
+        private int intAddByLoginIDField;
+        
+        private int intPaymentStatusField;
+        
+        private int intDaysOfCreditField;
+        
+        private bool doTriggersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShippingServiceField;
+        
+        private int ShippingRuleIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExternalReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NoteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderBillingAddress BillingAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderShippingAddress ShippingAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderItem[] orderItemsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int nCustomerID {
+            get {
+                return this.nCustomerIDField;
+            }
+            set {
+                if ((this.nCustomerIDField.Equals(value) != true)) {
+                    this.nCustomerIDField = value;
+                    this.RaisePropertyChanged("nCustomerID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int intBrandID {
+            get {
+                return this.intBrandIDField;
+            }
+            set {
+                if ((this.intBrandIDField.Equals(value) != true)) {
+                    this.intBrandIDField = value;
+                    this.RaisePropertyChanged("intBrandID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public int nSeasonID {
+            get {
+                return this.nSeasonIDField;
+            }
+            set {
+                if ((this.nSeasonIDField.Equals(value) != true)) {
+                    this.nSeasonIDField = value;
+                    this.RaisePropertyChanged("nSeasonID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public int nLoginID {
+            get {
+                return this.nLoginIDField;
+            }
+            set {
+                if ((this.nLoginIDField.Equals(value) != true)) {
+                    this.nLoginIDField = value;
+                    this.RaisePropertyChanged("nLoginID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public int nOrderID {
+            get {
+                return this.nOrderIDField;
+            }
+            set {
+                if ((this.nOrderIDField.Equals(value) != true)) {
+                    this.nOrderIDField = value;
+                    this.RaisePropertyChanged("nOrderID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public int nSendEmail {
+            get {
+                return this.nSendEmailField;
+            }
+            set {
+                if ((this.nSendEmailField.Equals(value) != true)) {
+                    this.nSendEmailField = value;
+                    this.RaisePropertyChanged("nSendEmail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string strReference {
+            get {
+                return this.strReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.strReferenceField, value) != true)) {
+                    this.strReferenceField = value;
+                    this.RaisePropertyChanged("strReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public int nPaymentTermID {
+            get {
+                return this.nPaymentTermIDField;
+            }
+            set {
+                if ((this.nPaymentTermIDField.Equals(value) != true)) {
+                    this.nPaymentTermIDField = value;
+                    this.RaisePropertyChanged("nPaymentTermID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public System.DateTime strDeliveryDate {
+            get {
+                return this.strDeliveryDateField;
+            }
+            set {
+                if ((this.strDeliveryDateField.Equals(value) != true)) {
+                    this.strDeliveryDateField = value;
+                    this.RaisePropertyChanged("strDeliveryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        public System.DateTime ShipByDate {
+            get {
+                return this.ShipByDateField;
+            }
+            set {
+                if ((this.ShipByDateField.Equals(value) != true)) {
+                    this.ShipByDateField = value;
+                    this.RaisePropertyChanged("ShipByDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public string strPostageOverride {
+            get {
+                return this.strPostageOverrideField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.strPostageOverrideField, value) != true)) {
+                    this.strPostageOverrideField = value;
+                    this.RaisePropertyChanged("strPostageOverride");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
+        public decimal NetCarriage {
+            get {
+                return this.NetCarriageField;
+            }
+            set {
+                if ((this.NetCarriageField.Equals(value) != true)) {
+                    this.NetCarriageField = value;
+                    this.RaisePropertyChanged("NetCarriage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
+        public decimal VATCarriage {
+            get {
+                return this.VATCarriageField;
+            }
+            set {
+                if ((this.VATCarriageField.Equals(value) != true)) {
+                    this.VATCarriageField = value;
+                    this.RaisePropertyChanged("VATCarriage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=13)]
+        public decimal decCarriageTotal {
+            get {
+                return this.decCarriageTotalField;
+            }
+            set {
+                if ((this.decCarriageTotalField.Equals(value) != true)) {
+                    this.decCarriageTotalField = value;
+                    this.RaisePropertyChanged("decCarriageTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=14)]
+        public int intAddByLoginID {
+            get {
+                return this.intAddByLoginIDField;
+            }
+            set {
+                if ((this.intAddByLoginIDField.Equals(value) != true)) {
+                    this.intAddByLoginIDField = value;
+                    this.RaisePropertyChanged("intAddByLoginID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=15)]
+        public int intPaymentStatus {
+            get {
+                return this.intPaymentStatusField;
+            }
+            set {
+                if ((this.intPaymentStatusField.Equals(value) != true)) {
+                    this.intPaymentStatusField = value;
+                    this.RaisePropertyChanged("intPaymentStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
+        public int intDaysOfCredit {
+            get {
+                return this.intDaysOfCreditField;
+            }
+            set {
+                if ((this.intDaysOfCreditField.Equals(value) != true)) {
+                    this.intDaysOfCreditField = value;
+                    this.RaisePropertyChanged("intDaysOfCredit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=17)]
+        public bool doTriggers {
+            get {
+                return this.doTriggersField;
+            }
+            set {
+                if ((this.doTriggersField.Equals(value) != true)) {
+                    this.doTriggersField = value;
+                    this.RaisePropertyChanged("doTriggers");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
+        public string ShippingService {
+            get {
+                return this.ShippingServiceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingServiceField, value) != true)) {
+                    this.ShippingServiceField = value;
+                    this.RaisePropertyChanged("ShippingService");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=19)]
+        public int ShippingRuleID {
+            get {
+                return this.ShippingRuleIDField;
+            }
+            set {
+                if ((this.ShippingRuleIDField.Equals(value) != true)) {
+                    this.ShippingRuleIDField = value;
+                    this.RaisePropertyChanged("ShippingRuleID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=20)]
+        public string ExternalReference {
+            get {
+                return this.ExternalReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExternalReferenceField, value) != true)) {
+                    this.ExternalReferenceField = value;
+                    this.RaisePropertyChanged("ExternalReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
+        public string Note {
+            get {
+                return this.NoteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NoteField, value) != true)) {
+                    this.NoteField = value;
+                    this.RaisePropertyChanged("Note");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderBillingAddress BillingAddress {
+            get {
+                return this.BillingAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillingAddressField, value) != true)) {
+                    this.BillingAddressField = value;
+                    this.RaisePropertyChanged("BillingAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderShippingAddress ShippingAddress {
+            get {
+                return this.ShippingAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingAddressField, value) != true)) {
+                    this.ShippingAddressField = value;
+                    this.RaisePropertyChanged("ShippingAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.APIOrderItem[] orderItems {
+            get {
+                return this.orderItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.orderItemsField, value) != true)) {
+                    this.orderItemsField = value;
+                    this.RaisePropertyChanged("orderItems");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseObjectOfInt32", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class ResponseObjectOfInt32 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool SuccessField;
+        
+        private int ErrorLevelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        private int ContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] ErrorsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool Success {
+            get {
+                return this.SuccessField;
+            }
+            set {
+                if ((this.SuccessField.Equals(value) != true)) {
+                    this.SuccessField = value;
+                    this.RaisePropertyChanged("Success");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int ErrorLevel {
+            get {
+                return this.ErrorLevelField;
+            }
+            set {
+                if ((this.ErrorLevelField.Equals(value) != true)) {
+                    this.ErrorLevelField = value;
+                    this.RaisePropertyChanged("ErrorLevel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public int Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((this.ContentField.Equals(value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] Errors {
+            get {
+                return this.ErrorsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
+                    this.ErrorsField = value;
+                    this.RaisePropertyChanged("Errors");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseObjectOfOrderDetail", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class ResponseObjectOfOrderDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool SuccessField;
+        
+        private int ErrorLevelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail ContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] ErrorsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool Success {
+            get {
+                return this.SuccessField;
+            }
+            set {
+                if ((this.SuccessField.Equals(value) != true)) {
+                    this.SuccessField = value;
+                    this.RaisePropertyChanged("Success");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int ErrorLevel {
+            get {
+                return this.ErrorLevelField;
+            }
+            set {
+                if ((this.ErrorLevelField.Equals(value) != true)) {
+                    this.ErrorLevelField = value;
+                    this.RaisePropertyChanged("ErrorLevel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.OrderDetail Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.ApiFault[] Errors {
+            get {
+                return this.ErrorsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
+                    this.ErrorsField = value;
+                    this.RaisePropertyChanged("Errors");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RequestObjectOfAPIGetOrdersRequest", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
     public partial class RequestObjectOfAPIGetOrdersRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -14703,6 +14912,13 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         System.Threading.Tasks.Task<CloudCommerceProApiClient.CloudCommercePro.Orders.SearchResponse> SearchAsync(CloudCommerceProApiClient.CloudCommercePro.Orders.SearchRequest request);
         
         // CODEGEN: Generating message contract since element name request from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICCPApiOrderService/GetDispatchedOrders", ReplyAction="http://tempuri.org/ICCPApiOrderService/GetDispatchedOrdersResponse")]
+        CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersResponse GetDispatchedOrders(CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICCPApiOrderService/GetDispatchedOrders", ReplyAction="http://tempuri.org/ICCPApiOrderService/GetDispatchedOrdersResponse")]
+        System.Threading.Tasks.Task<CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersResponse> GetDispatchedOrdersAsync(CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequest request);
+        
+        // CODEGEN: Generating message contract since element name request from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICCPApiOrderService/createOrder", ReplyAction="http://tempuri.org/ICCPApiOrderService/createOrderResponse")]
         CloudCommerceProApiClient.CloudCommercePro.Orders.createOrderResponse createOrder(CloudCommerceProApiClient.CloudCommercePro.Orders.createOrderRequest request);
         
@@ -14990,6 +15206,74 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
         
         public SearchResponseBody(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfApiOrderQueryResponse SearchResult) {
             this.SearchResult = SearchResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDispatchedOrdersRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDispatchedOrders", Namespace="http://tempuri.org/", Order=0)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequestBody Body;
+        
+        public GetDispatchedOrdersRequest() {
+        }
+        
+        public GetDispatchedOrdersRequest(CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDispatchedOrdersRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfApiOrderQuery request;
+        
+        public GetDispatchedOrdersRequestBody() {
+        }
+        
+        public GetDispatchedOrdersRequestBody(CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfApiOrderQuery request) {
+            this.request = request;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDispatchedOrdersResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDispatchedOrdersResponse", Namespace="http://tempuri.org/", Order=0)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersResponseBody Body;
+        
+        public GetDispatchedOrdersResponse() {
+        }
+        
+        public GetDispatchedOrdersResponse(CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDispatchedOrdersResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfDispatchedOrdersList GetDispatchedOrdersResult;
+        
+        public GetDispatchedOrdersResponseBody() {
+        }
+        
+        public GetDispatchedOrdersResponseBody(CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfDispatchedOrdersList GetDispatchedOrdersResult) {
+            this.GetDispatchedOrdersResult = GetDispatchedOrdersResult;
         }
     }
     
@@ -16564,6 +16848,31 @@ namespace CloudCommerceProApiClient.CloudCommercePro.Orders {
             inValue.Body = new CloudCommerceProApiClient.CloudCommercePro.Orders.SearchRequestBody();
             inValue.Body.request = request;
             return ((CloudCommerceProApiClient.CloudCommercePro.Orders.ICCPApiOrderService)(this)).SearchAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersResponse CloudCommerceProApiClient.CloudCommercePro.Orders.ICCPApiOrderService.GetDispatchedOrders(CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequest request) {
+            return base.Channel.GetDispatchedOrders(request);
+        }
+        
+        public CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfDispatchedOrdersList GetDispatchedOrders(CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfApiOrderQuery request) {
+            CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequest inValue = new CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequest();
+            inValue.Body = new CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequestBody();
+            inValue.Body.request = request;
+            CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersResponse retVal = ((CloudCommerceProApiClient.CloudCommercePro.Orders.ICCPApiOrderService)(this)).GetDispatchedOrders(inValue);
+            return retVal.Body.GetDispatchedOrdersResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersResponse> CloudCommerceProApiClient.CloudCommercePro.Orders.ICCPApiOrderService.GetDispatchedOrdersAsync(CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequest request) {
+            return base.Channel.GetDispatchedOrdersAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersResponse> GetDispatchedOrdersAsync(CloudCommerceProApiClient.CloudCommercePro.Orders.RequestObjectOfApiOrderQuery request) {
+            CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequest inValue = new CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequest();
+            inValue.Body = new CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersRequestBody();
+            inValue.Body.request = request;
+            return ((CloudCommerceProApiClient.CloudCommercePro.Orders.ICCPApiOrderService)(this)).GetDispatchedOrdersAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

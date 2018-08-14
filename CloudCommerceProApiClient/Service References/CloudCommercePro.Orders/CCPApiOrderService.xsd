@@ -135,6 +135,8 @@
       <xs:enumeration value="Returned" />
       <xs:enumeration value="Ignored" />
       <xs:enumeration value="Refunded" />
+      <xs:enumeration value="Dispatched" />
+      <xs:enumeration value="PartaillyDispatched" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SearchResponse">
@@ -255,116 +257,40 @@
       <xs:element minOccurs="1" maxOccurs="1" name="DiscountCalculatedInPrice" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="createOrder">
+  <xs:element name="GetDispatchedOrders">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIOrderCreateOrderRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfApiOrderQuery" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:complexType name="RequestObjectOfAPIOrderCreateOrderRequest">
-    <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIOrderCreateOrderRequest" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="APIOrderCreateOrderRequest">
-    <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="nCustomerID" type="xs:int" />
-      <xs:element minOccurs="1" maxOccurs="1" name="intBrandID" type="xs:int" />
-      <xs:element minOccurs="1" maxOccurs="1" name="nSeasonID" type="xs:int" />
-      <xs:element minOccurs="1" maxOccurs="1" name="nLoginID" type="xs:int" />
-      <xs:element minOccurs="1" maxOccurs="1" name="nOrderID" type="xs:int" />
-      <xs:element minOccurs="1" maxOccurs="1" name="nSendEmail" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="1" name="strReference" type="xs:string" />
-      <xs:element minOccurs="1" maxOccurs="1" name="nPaymentTermID" type="xs:int" />
-      <xs:element minOccurs="1" maxOccurs="1" name="strDeliveryDate" type="xs:dateTime" />
-      <xs:element minOccurs="1" maxOccurs="1" name="ShipByDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" maxOccurs="1" name="strPostageOverride" type="xs:string" />
-      <xs:element minOccurs="1" maxOccurs="1" name="NetCarriage" type="xs:decimal" />
-      <xs:element minOccurs="1" maxOccurs="1" name="VATCarriage" type="xs:decimal" />
-      <xs:element minOccurs="1" maxOccurs="1" name="decCarriageTotal" type="xs:decimal" />
-      <xs:element minOccurs="1" maxOccurs="1" name="intAddByLoginID" type="xs:int" />
-      <xs:element minOccurs="1" maxOccurs="1" name="intPaymentStatus" type="xs:int" />
-      <xs:element minOccurs="1" maxOccurs="1" name="intDaysOfCredit" type="xs:int" />
-      <xs:element minOccurs="1" maxOccurs="1" name="doTriggers" type="xs:boolean" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingService" type="xs:string" />
-      <xs:element minOccurs="1" maxOccurs="1" name="ShippingRuleID" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ExternalReference" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="Note" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddress" type="tns:APIOrderBillingAddress" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress" type="tns:APIOrderShippingAddress" />
-      <xs:element minOccurs="0" maxOccurs="1" name="orderItems" type="tns:ArrayOfAPIOrderItem" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="APIOrderBillingAddress">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddressCompanyName" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingContactFirstName" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingContactLastName" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddress1" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddress2" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingTown" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingCounty" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingCountry" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingPostCode" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingTelephone" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="BillingMobile" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="APIOrderShippingAddress">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddressCompanyName" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingContactFirstName" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingContactLastName" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress1" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress2" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingTown" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingCounty" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingCountry" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingPostCode" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingTelephone" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ShippingMobile" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="createOrderResponse">
+  <xs:element name="GetDispatchedOrdersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="1" name="createOrderResult" type="tns:ResponseObjectOfInt32" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetDispatchedOrdersResult" type="tns:ResponseObjectOfDispatchedOrdersList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:complexType name="ResponseObjectOfInt32">
+  <xs:complexType name="ResponseObjectOfDispatchedOrdersList">
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
       <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
       <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
-      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:DispatchedOrdersList" />
       <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="SubmitOrder">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIOrderCreateOrderRequest" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SubmitOrderResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="1" name="SubmitOrderResult" type="tns:ResponseObjectOfOrderDetail" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:complexType name="ResponseObjectOfOrderDetail">
+  <xs:complexType name="DispatchedOrdersList">
     <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
-      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:OrderDetail" />
-      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Start" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="End" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="totalRecords" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="orders" type="tns:ArrayOfOrderDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfOrderDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderDetail" nillable="true" type="tns:OrderDetail" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="OrderDetail">
@@ -1110,6 +1036,36 @@
       <xs:enumeration value="Disabled" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="APIOrderShippingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddressCompanyName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingContactFirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingContactLastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingTown" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingCounty" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingCountry" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingPostCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingTelephone" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingMobile" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIOrderBillingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddressCompanyName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingContactFirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingContactLastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddress1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddress2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingTown" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingCounty" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingCountry" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingPostCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingTelephone" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingMobile" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="ArrayOfCustomerOrderDispatch">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerOrderDispatch" nillable="true" type="tns:CustomerOrderDispatch" />
@@ -1237,6 +1193,88 @@
       <xs:element minOccurs="0" maxOccurs="1" name="EbaySiteURL" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:element name="createOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIOrderCreateOrderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestObjectOfAPIOrderCreateOrderRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityHash" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:APIOrderCreateOrderRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APIOrderCreateOrderRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="nCustomerID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intBrandID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nSeasonID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nLoginID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nOrderID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nSendEmail" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="strReference" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="nPaymentTermID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="strDeliveryDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ShipByDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="strPostageOverride" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NetCarriage" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="VATCarriage" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="decCarriageTotal" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intAddByLoginID" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intPaymentStatus" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="intDaysOfCredit" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="doTriggers" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingService" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ShippingRuleID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExternalReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Note" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BillingAddress" type="tns:APIOrderBillingAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShippingAddress" type="tns:APIOrderShippingAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="orderItems" type="tns:ArrayOfAPIOrderItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResponseObjectOfInt32">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Content" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="createOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="createOrderResult" type="tns:ResponseObjectOfInt32" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestObjectOfAPIOrderCreateOrderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseObjectOfOrderDetail">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorLevel" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Content" type="tns:OrderDetail" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfApiFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmitOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubmitOrderResult" type="tns:ResponseObjectOfOrderDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getOrders">
     <xs:complexType>
       <xs:sequence>

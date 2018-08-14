@@ -142,8 +142,8 @@
     <None Include="Service References\CloudCommercePro.OrderReturns\CloudCommerceProApiClient.CloudCommercePro.OrderReturns.ResponseObjectOfListOfOrderReturn.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService1.wsdl" />
-    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService1.xsd">
+    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService.wsdl" />
+    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.createOrderResponse.datasource">
@@ -156,6 +156,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getCompletedOrdersNoOfDaysResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.GetDispatchedOrdersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.getInvoiceSummaryForOrderIDResponse.datasource">
@@ -216,6 +219,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfBoolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfDispatchedOrdersList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CloudCommercePro.Orders\CloudCommerceProApiClient.CloudCommercePro.Orders.ResponseObjectOfInt32.datasource">
@@ -569,18 +575,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CloudCommercePro.Orders\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\CloudCommercePro.Orders\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\CloudCommercePro.Orders\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\CloudCommercePro.OrderReturns\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -596,7 +590,19 @@
     <None Include="Service References\CloudCommercePro.OrderReturns\CcpApiOrderReturnsService1.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService1.disco" />
+    <None Include="Service References\CloudCommercePro.Orders\CCPApiOrderService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CloudCommercePro.Orders\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CloudCommercePro.Orders\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CloudCommercePro.Orders\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
